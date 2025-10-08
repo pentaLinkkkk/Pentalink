@@ -30,3 +30,4 @@ Si queremos que los minijuegos de navegador se puedan ejecutar, necesitaremos al
 
 <h2><b>Recursos</b></h2>
 En el Trello estamos añadiendo enlaces de tutoriales y cursos para estudiar sobre los temas que aún no controlamos. Hemos empezado creando un documento para aprender sobre Docker y pensamos continuar con MySql, PHP e implementación de cloudflare.
+<b></b>
