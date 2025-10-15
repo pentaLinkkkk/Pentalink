@@ -4,6 +4,10 @@
   * [Materiales necesarios](#materiales-necesarios-(hardware-y-software))
   * [Red](#red)
   * [Web](#web)
+  * [Servicios](#servicios)
+  * [incidencias](#incidencias)
+  * [conclusiones](#conclusiones)
+  * [bibliografía](#bibliografia)
 
 <details>
 <summary><h2>Introducción</h2></summary>
@@ -85,9 +89,16 @@ Hemos escogido un color turquesa oscuro para que sea el dominante de la página,
 </details>
 <details>
 <summary><h2>Bibliografía</h2></summary>
- 
+
+### Documentación general
+https://github.com/ossu/computer-science
+https://www.geeksforgeeks.org/python/how-to-use-css-in-python-flask/
+
 ### Documentación sobre MySql
+http://youtube.com/watch?v=AJUJ1f9gFm8
+https://www.tutorialesprogramacionya.com/mysqlya/
 
 ### Documentación sobre Docker
+https://www.geeksforgeeks.org/devops/docker-tutorial/ 
 
 </details>
