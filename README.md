@@ -1,11 +1,9 @@
 # PENTALINK
 ## índice
-- [PENTALINK](#pentalink)
-  * [índice](#-ndice)
-  * [Idea seleccionada y justificación](#idea-seleccionada-y-justificaci-n)
+  * [Idea seleccionada y justificación](#idea-seleccionada-y-justificacion)
   * [Objetivo](#objetivo)
-    + [Público objetivo](#p-blico-objetivo)
-    + [Módulos del ciclo relacionados](#m-dulos-del-ciclo-relacionados)
+    + [Público objetivo](#publico-objetivo)
+    + [Módulos del ciclo relacionados](#modulos-del-ciclo-relacionados)
   * [Materiales necesarios](#materiales-necesarios)
     + [Recursos](#recursos)
 
