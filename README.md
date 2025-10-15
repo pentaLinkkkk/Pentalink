@@ -57,7 +57,7 @@ Para la red seguiremos el esquema básico que se nos ha mostrado en clase.
 ### Diseño
 
 ### Mockup
-Hemos escogido un color turquesa oscuro para que sea el dominante de la página, el blanco y el negro como complementarios, y el amarillo como color de contraste para los enlaces y otros detalles que creamos convenientes.
+Hemos escogido un color turquesa oscuro para que sea el dominante de la página, el blanco (gris claro) y el negro (gris oscuro) como complementarios, y el amarillo como color de contraste para los enlaces y otros detalles que creamos convenientes.
 <img width="824" height="472" alt="idea paleta" src="https://github.com/user-attachments/assets/4d5133f0-aed1-485c-9436-8aba8f945308" />
 
 ### Mapa de navegabilidad
