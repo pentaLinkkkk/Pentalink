@@ -1,12 +1,9 @@
 # PENTALINK
 ## índice
   * [Introducción](#introduccion)
-  * [Objetivo e ideas](#objetivo-e-ideas)
-    + [Público objetivo](#publico-objetivo)
-    + [Módulos del ciclo relacionados](#modulos-del-ciclo-relacionados)
   * [Materiales necesarios](#materiales-necesarios-(hardware-y-software))
-    + [Recursos](#recursos)
   * [Red](#red)
+  * [Web](#web)
 
 <details>
 <summary><h2>Introducción</h2></summary>
@@ -47,8 +44,11 @@ En el Trello estamos añadiendo enlaces de tutoriales y cursos para estudiar sob
 <details>
 <summary><h2>Red</h2></summary>
 Para la red seguiremos el esquema básico que se nos ha mostrado en clase. 
+ 
 ### Diagrama de la red
+
 ### Mapa físico
+
 ### Mapa lógico
 </details>
 <details>
@@ -61,14 +61,21 @@ Hemos escogido un color turquesa oscuro para que sea el dominante de la página,
 <img width="824" height="472" alt="idea paleta" src="https://github.com/user-attachments/assets/4d5133f0-aed1-485c-9436-8aba8f945308" />
 
 ### Mapa de navegabilidad
+
 </details>
 <details>
 <summary><h2>Servicios</h2></summary>
+ 
 ### DNS
+
 ### DHCP
+
 ### Apache
+
 ### Firewall
+
 ### Copias de seguridad
+
 </details>
 <details>
 <summary><h2>Incidencias</h2></summary>
@@ -78,6 +85,9 @@ Hemos escogido un color turquesa oscuro para que sea el dominante de la página,
 </details>
 <details>
 <summary><h2>Bibliografía</h2></summary>
+ 
 ### Documentación sobre MySql
+
 ### Documentación sobre Docker
+
 </details>
