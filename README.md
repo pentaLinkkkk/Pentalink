@@ -92,10 +92,12 @@ Hemos escogido un color turquesa oscuro para que sea el dominante de la página,
 
 ### Documentación general
 https://github.com/ossu/computer-science
+
 https://www.geeksforgeeks.org/python/how-to-use-css-in-python-flask/
 
 ### Documentación sobre MySql
 http://youtube.com/watch?v=AJUJ1f9gFm8
+
 https://www.tutorialesprogramacionya.com/mysqlya/
 
 ### Documentación sobre Docker
