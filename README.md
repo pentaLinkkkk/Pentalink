@@ -1,8 +1,8 @@
 # PENTALINK
 ## índice
-- [Idea seleccionada y justificación](-idea-seleccionada-y-justificación)
-- [Objetivo](-objetivo)
-- [Materiales necesarios](-materiales-necesarios)
+- [Idea seleccionada y justificación](#-idea-seleccionada-y-justificación)
+- [Objetivo](#-objetivo)
+- [Materiales necesarios](#-materiales-necesarios)
 
 ## Idea seleccionada y justificación
 Nuestro grupo está integrado por Paula Simó, Oscar Jansana y Aleksei Zagrebelnii. Teníamos la idea de crear un portal web donde los usuarios podrían registrarse y compartir contenido multimedia creado por ellos mismos.
