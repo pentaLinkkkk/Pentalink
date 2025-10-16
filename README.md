@@ -1,4 +1,3 @@
-# PENTALINK
 ![alt text](https://github.com/OscarJansana/Pentalink/blob/Im%C3%A1genes/PentaLink%20logo%20update.png)
 
 ## índice
