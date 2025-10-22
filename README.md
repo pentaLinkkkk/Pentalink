@@ -1,44 +1,62 @@
-# PENTALINK
+![alt text](https://github.com/OscarJansana/Pentalink/blob/Im%C3%A1genes/PentaLink%20logo%20update.png)
+
 ## índice
   * [Introducción](#introduccion)
   * [Materiales necesarios](#materiales-necesarios-(hardware-y-software))
   * [Red](#red)
   * [Web](#web)
   * [Servicios](#servicios)
-  * [incidencias](#incidencias)
-  * [conclusiones](#conclusiones)
-  * [bibliografía](#bibliografia)
+  * [Incidencias](#incidencias)
+  * [Conclusiones](#conclusiones)
+  * [Bibliografía](#bibliografia)
 
 <details>
 <summary><h2>Introducción</h2></summary>
 
-Nuestro grupo está integrado por Paula Simó, Oscar Jansana y Aleksei Zagrebelnii. Teníamos la idea de crear un portal web donde los usuarios podrían registrarse y compartir contenido multimedia creado por ellos mismos.
-El nombre de nuestro proyecto, PentaLink, hace referencia a los 5 tipos de archivos que se podrán subir (Penta = 5); Blogs, Imágenes, música, vídeos y videojuegos.
+Somos un grupo de estudiantes de IFP Innovación en formación profesional Hospitalet del Llobregat, nuestros nombres son Paula Simó, Oscar Jansana y Aleksei Zagrebelnii. Tenemos como idea de proyecto intermodular el crear un portal web donde los usuarios podrían registrarse y compartir contenido multimedia creado por ellos mismos. Esta idea ha sido referenciada por otros 2 portales <a href="https://www.newgrounds.com/">New Grounds</a>, donde hemos cogido como referencia el poder subir diversos distintos tipos de entretenimiento y, posteriormente <a href="https://spacehey.com/">MySpace</a>, actualemte conocido como SpaceHey como formato para la creación de usuarios.<br>
+<br>Como nombre del proyecto hemos decidido poner PentaLink, este, referencia a los 5 tipos de archivos que se podrán subir al portal web, que serán Blogs, Imágenes, Música, Vídeos y Videojuegos.
 
 
 ### Objetivo e ideas
-Tenemos la intención de agregar personalización básica para los perfiles de los usuarios (cambiar la foto de perfil, la biografía y el banner). También queremos implementar la posibilidad de añadir comentarios en las publicaciones de otros usuarios.
-Los juegos que se suban en la página podrán ser de dos tipos; minijuegos web sencillos que se podrán ejecutar en el navegador, y otros, más complejos que deberán descargarse para poder ser jugados.
+Como objetivo principal, queremos crear un portal web funcional donde cada usuario pueda subir el contenido que desee, al igual que visitar el contenido subido por los otoros usuarios con los 5 tipos de archivos mencionados anteriormente (blogs, imágenes, música, vídeos y videojuegos) diferenciados por sus respectivas secciones. Para en el caso de las imágenes, música y vídeos permitiríamos que se pudieran subir archivos con distintas extensiones por cada tipo. Como ejemplo para terminar de entender a qué nos referimos con las distintas extensiones por archivo sería para el caso de las imágenes, que el usuario pudiera subir imágenes jpg, jpeg, pnj (entre otros que también existen), en el caso de música podría ser con formato mp3 o wav y finalmente, en el caso de vídeos mp4 o wmv.<br>
+
+<br>Para el caso de los blogs, nuestra idea es que en cambio de que los usuarios suban un archivo como blog integrarlo dentro del portal, es decir, el usuario crearía un nuevo blog donde lo que le aparecería para publicarlo serian 2 cajas de texto, donde una sería el título/asunto del blog y posteriormente el cuerpo del mismo. Finalmente, en el caso de los videojuegos intentaremos integrar los que sean más simples y ejecutables dentro del mismo navegador.<br>
+
+<br>Una vez tengamos el portal (descrito anteriormente) completamente funcional es cuando nos gustaría hacer las ampliaciones con el objetivo de hacerlo lo más completo posible, donde tenemos pensadas ya ciertas ampliaciones, como pueden ser las siguientes:<br>
+
+<ul>
+<br><li> Para el apartado de videojuegos nos gustaría que se pudiera permitir subir videojuegos más complejos y estos poder descargarlos para poder jugarlos
+<br><li> Para el perfil del usuario nos gustaría poder agregar la personalización básica, es decir, el poder cambiar la foto de perfil, biografía y banner
+<br><li> Agregar la posibilidad de añadir comentarios en las publicaciones de otros usuarios
+<br><li> Agregar la opción de poder dar Like, Dislike y poder agregar a favoritos una publicación
+<br><li> Poder personalizar lo máximo posible la experiencia del usuario, añadiendo por ejemplo la opción de poder mostrarle un apartado de relevantes o recomendados para él encima de las publicaciones recientes de los usuarios
+</ul>
 
 
 ### Público objetivo
-Nuestro público objetivo son personas jóvenes creativas que tengan ganas de compartir su pasión y su arte con otras personas, o que quieran conectar con usuarios que tengan sus mismos intereses.
+El público objetivo de este portal es bastante amplio gracias a su amplio contenido y versatilidad de contenido, algunos ejemplos del público con el que queremos conectar son: <br>
+<ul>
+<br><li> Jóvenes creativos con ganas de compartir su pasión y arte con otras personas
+<br><li> Personas que quieran conectar con otros usuarios que tengan sus mismos intereses
+<br><li> Bloggers o escritores que quieran compartir o dar ideas para historias
+<br><li> Gente interesada en un tipo de red social o plataforma alternativa
+</ul>
 
 
 ### Módulos del ciclo relacionados
-Los módulos del ciclo que están relacionados con nuestro proyecto son:
+Los módulos que consideramos relacionados de nuestro ciclo (Sistemas Microinformáticos y Redes) con el proyecto son los siguientes:
 <ul>
 <li>Aplicaciones web: Para el diseño y el desarrollo de la página web.</li>
 <li>Servidores en red: Para instalar y configurar los servidores que formarán parte de la red de nuestro proyecto.</li>
 <li>Seguridad informática: Para reforzar la seguridad de la web y nuestros servidores (firewall, copias de seguridad...)</li>
 <li>Sistemas operativos en red: Para instalar y configurar los sistemas operativos y máquinas virtuales que utilizaremos para desarrollar el proyecto.</li>
 </ul>
-</details>
+</details>º
 <details>
 <summary><h2>Materiales necesarios (Hardware y software)</h2></summary>
-Por ahora, necesitaremos 4 servidores (DNS y DHCP, WEB, MySql y copias de seguridad NAS), router, firewall.
-Tenemos pensado implementar Docker en lugar de máquinas virtuales completas para que el peso del proyecto sea más ligero y no cueste tanto levantar los servidores cada vez que queramos conectar la página web.
-También queremos utilizar cloudflare para reforzar la seguridad de nuestra web.
+Por ahora, consideramos que necesitaremos 4 servidores (DNS y DHCP, WEB, MySql y copias de seguridad NAS), router y firewall.
+A futuro, también tenemos pensado implementar el Docker en cambio de utilizar máquinas virtuales completas, para que de esta forma, el peso del proyecto sea más ligero y no cueste tanto levantar los servidores que necesitamos para la página web, aparte, para poder reforzar la seguridad de la misma nos gustaría implementar cloudflare. 
+
 Si queremos que los minijuegos de navegador se puedan ejecutar, necesitaremos algo estilo flash para que funcionen.
 
 
