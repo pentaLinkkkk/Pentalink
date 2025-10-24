@@ -54,14 +54,17 @@ Los módulos que consideramos relacionados de nuestro ciclo (Sistemas Microinfor
 </details>
 <details>
 <summary><h2>Materiales necesarios (Hardware y software)</h2></summary>
-Por ahora, consideramos que necesitaremos 4 servidores (DNS y DHCP, WEB, MySql y copias de seguridad NAS), router y firewall.
-A futuro, también tenemos pensado implementar el Docker en cambio de utilizar máquinas virtuales completas, para que de esta forma, el peso del proyecto sea más ligero y no cueste tanto levantar los servidores que necesitamos para la página web, aparte, para poder reforzar la seguridad de la misma nos gustaría implementar cloudflare. Si bien es cierto que los vi
+Para la implementación de la infraestructura del proyecto hemos optado por el uso del Docker como parte principal de virtualización y despliegue de servicios, de esta forma, podremos tener en distintos contenedores los servicios de DNS, DHCP y WEB donde tendremos una mayor facilidad de mantenimiento, ya que, de esta forma podremos garantizar un mejor control de los recursos. Aparte de este servidor, implementaremos otro dedicado exclusivamente a las copias de seguridad, de esta forma podremos realizar respaldos automáticos y periódicos de los servicios principales para poder asegurar la disponibilidad y recuperación en caso de fallos o incidentes de seguridad.
+ 
+ <br>** agregar parte del router y firewall ** Aparte, para poder reforzar la seguridad de la WEB, tenemos pensado implementar cloudflare como capa de protección y optimización del tráfico, de esta forma, podremos tener protección frente ataques y amenazas comunes
 
-Si queremos que los minijuegos de navegador se puedan ejecutar, necesitaremos algo estilo flash para que funcionen.
+<br>Por otro lado, para el apartado de los videojuegos hemos pensado en poder abarcar la mayor cantidad de lenguajes de programación que hay (es decir, admitirlos todos) para que, de esta forma, los usuarios tengan la libertad absoulta de subir los juegos que quieran. Para ello, diferenciaremos los lenguajes en 2 grupos, los que incluyen la tecnologia compatible y los que no, para los que sean compatibles los ejecutaremos directamente en el navegador y se jugará de forma completamente online con opción a descargar el juego, en caso de no ser compatible, se deberán descargar para poder ser jugados.
+
+<br>El grupo que se considera compatible serían HTML5, JavaScript (JS), WebAssembly (WASM) y los que puedan ser interpretados a través de JS o WASM como Python, Ruby, Lua, C, C++ o Rust, mientras que los no compatibles son los que se encuentran fuera de esta lista. De esta forma, podemos garantizar que se puedan jugar todos los juegos que suban los usuarios utilizando el lenguaje de programación que quieran. 
 
 
 ### Recursos
-En el Trello estamos añadiendo enlaces de tutoriales y cursos para estudiar sobre los temas que aún no controlamos. Hemos empezado creando un documento para aprender sobre Docker y pensamos continuar con MySql, PHP e implementación de cloudflare.
+Los recursos principales que estamos utilizando son aquellos que estamos subiendo en el <a href="https://trello.com/b/C53JrxYj/amnis-project">Trello</a>, donde estamos añadiendo enlaces de tutoriales y cursos para estudiar sobre los temas que aún no controlados, aparte de ello, también estamos creando documentos aparte con muestros apuntes y explicaciones para poder aprender sobre Docker, MySql, PHP y la implementación del Cloudflare.
 </details>
 <details>
 <summary><h2>Red</h2></summary>
@@ -122,4 +125,3 @@ https://www.tutorialesprogramacionya.com/mysqlya/
 https://www.geeksforgeeks.org/devops/docker-tutorial/ 
 
 </details>
-
