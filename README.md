@@ -68,8 +68,26 @@ Los recursos principales que estamos utilizando son aquellos que estamos subiend
 </details>
 <details>
 <summary><h2>Red</h2></summary>
-Para la red seguiremos el esquema básico que se nos ha mostrado en clase. 
- 
+Para la red seguiremos el esquema básico que se nos ha mostrado en clase. Dentro de nuestra red interna, tendremos cuatro servidores:
+<ol>
+<li>Servidor web
+ Donde almacenaremos: 
+ - Apache
+ - PHP
+ - Html, Css y JavaScript
+<li>Base de datos
+ Que contendrá:
+ - MySQL
+ - PHPmyadmin
+<li>Servidor DNS
+<li>Backup
+ Donde haremos copias de:
+ - Apache
+ - PHP
+ - MySQL (Base de datos)
+ - Configuración del DNS
+ - Firewall
+</ol>
 ### Diagrama de la red
 
 ### Mapa físico
