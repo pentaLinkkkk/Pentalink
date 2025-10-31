@@ -83,6 +83,7 @@ Hemos escogido un color turquesa oscuro para que sea el dominante de la página,
 <img width="824" height="472" alt="idea paleta" src="https://github.com/user-attachments/assets/4d5133f0-aed1-485c-9436-8aba8f945308" />
 
 ### Mapa de navegabilidad
+<img width="2476" height="1365" alt="PentaLink Mapa de mockup" src="https://github.com/user-attachments/assets/574c4842-5ee4-43a2-971f-8b79c092e8e5" />
 
 </details>
 <details>
