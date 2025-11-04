@@ -64,7 +64,7 @@ Para la implementación de la infraestructura del proyecto hemos optado por el u
 
 <br>El grupo que se considera compatible serían HTML5, JavaScript (JS), WebAssembly (WASM) y los que puedan ser interpretados a través de JS o WASM como Python, Ruby, Lua, C, C++ o Rust, mientras que los no compatibles son los que se encuentran fuera de esta lista. De esta forma, podemos garantizar que se puedan jugar todos los juegos que suban los usuarios utilizando el lenguaje de programación que quieran. 
 
-## Cloudflare
+#### Cloudflare
 
 Implementaremos Cloudflare en nuestra web para agilizar el tráfico de la red y disminuir los tiempos de carga. Además, también protegerá nuestra página de bots malintencionados, ataques de denegación de servicio (DoS) y otros tipos de tráfico malicioso.
 
