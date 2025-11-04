@@ -107,8 +107,16 @@ Este es el esquema de red que utilizaremos; es el mismo que se nos fue proporcio
 ### Diseño
 
 ### Mockup
-Hemos escogido un color turquesa oscuro para que sea el dominante de la página, el blanco (gris claro) y el negro (gris oscuro) como complementarios, y el amarillo como color de contraste para los enlaces y otros detalles que creamos convenientes.
-<img width="824" height="472" alt="idea paleta" src="https://github.com/user-attachments/assets/4d5133f0-aed1-485c-9436-8aba8f945308" />
+Como colores para nuestro portal web hemos elegido un color turquesa oscuro como base, esto se debe a que lo hemos considerado un color muy bonito y sólido con el que poder hacer grandes combinaciones gracias a su versatilidad. Aparte de ello, consideramos que este color puede llegar a transmitir un punto elegante donde evitamos los tonos más comunes y combinables con el blanco o negro para que se haga una vista menos pesada y más suavizada.
+
+<br>Como colores secundarios o llamados complementarios hemos elegido 3 tonos distintos. Como primer tono hemos elegido una escala de grises claros para que puedan dar un toque de claridad. donde pueda tener una legibilidad superior sobre el fondo y a su misma vez, puede reducir el impacto de brillo o contraste excesivo que pudiera fatigar la vista como pudiera pasar con el color blanco.
+
+<br>Como segundo tono, hemos elegido un color gris oscuro, para aportar el toque de oscuridad, profundidad textura y diferenciación, donde lo usaremos para crear capas que no rompan el esquema oscuro que ya tiene la web. La idea sería utilizarlo para la diferenciación de áreas principales y secundarias, para que el contenido se vea en armonía sin que parezcan simples pegotes y pueda dar la sensación underground y retro de los portales Newground y MysPace en los que nos hemos basado, comentados ya anteriormente.
+
+<br>Como tercer y último tono, hemos decidido elegir un tono amarillo, para que de esta forma podamos aportar un contraste a la vista del usuario, de esta forma fomentaremos la interacción. Esta interacción se verá aumentada gracias al gran contraste generado con el fondo oscuro, ya que obligaremos al ojo a mirar primero los elementos amarillos, donde lo usaremos en etiquetas, notificaciones, botones o bien, para otros detalles que consideremos convenientes y necesarios que el usuario vea
+
+<br>A continuación, podemos ver los ejemplos de los tonos elegidos y cómo se verían combinados:
+<img width="950" height="350" alt="cp-removebg-preview" src="https://github.com/user-attachments/assets/1173cdba-1bb6-4e22-b0d5-e5763b073be0" />
 
 ### Mapa de navegabilidad
 
