@@ -119,6 +119,7 @@ Como colores para nuestro portal web hemos elegido un color turquesa oscuro como
 <img width="950" height="350" alt="cp-removebg-preview" src="https://github.com/user-attachments/assets/1173cdba-1bb6-4e22-b0d5-e5763b073be0" />
 
 ### Mapa de navegabilidad
+<img width="2476" height="1365" alt="PentaLink Mapa de mockup" src="https://github.com/user-attachments/assets/16a5f33c-9c2a-471b-bee6-5835056e9134"/>
 
 </details>
 <details>
