@@ -90,6 +90,7 @@ Para la red seguiremos el esquema básico que se nos ha mostrado en clase. Dentr
  <br>- Configuración del DNS
  <br>- Firewall
 </ol>
+
 ### Diagrama de la red
 
 Este es el esquema de red que utilizaremos; es el mismo que se nos fue proporcionado en clase. 
