@@ -64,6 +64,18 @@ Para la implementación de la infraestructura del proyecto hemos optado por el u
 
 <br>El grupo que se considera compatible serían HTML5, JavaScript (JS), WebAssembly (WASM) y los que puedan ser interpretados a través de JS o WASM como Python, Ruby, Lua, C, C++ o Rust, mientras que los no compatibles son los que se encuentran fuera de esta lista. De esta forma, podemos garantizar que se puedan jugar todos los juegos que suban los usuarios utilizando el lenguaje de programación que quieran. 
 
+## Cloudflare
+
+Implementaremos Cloudflare en nuestra web para agilizar el tráfico de la red y disminuir los tiempos de carga. Además, también protegerá nuestra página de bots malintencionados, ataques de denegación de servicio (DoS) y otros tipos de tráfico malicioso.
+
+<ul>
+Nuestro plan de Cloudflare incluye: 
+<li>Mitigación DDoS
+<li>Certificación SSL universal
+<li>DNS
+<li>CDN con equilibrio de carga global 
+</ul>
+
 
 ### Recursos
 Los recursos principales que estamos utilizando son aquellos que estamos subiendo en el <a href="https://trello.com/b/C53JrxYj/amnis-project">Trello</a>, donde estamos añadiendo enlaces de tutoriales y cursos para estudiar sobre los temas que aún no controlados, aparte de ello, también estamos creando documentos aparte con muestros apuntes y explicaciones para poder aprender sobre Docker, MySql, PHP y la implementación del Cloudflare.
@@ -91,17 +103,6 @@ Para la red seguiremos el esquema básico que se nos ha mostrado en clase. Dentr
  <br>- Firewall
 </ol>
 
-# Cloudflare
-
-Implementaremos Cloudflare en nuestra web para agilizar el tráfico de la red y disminuir los tiempos de carga. Además, también protegerá nuestra página de bots malintencionados, ataques de denegación de servicio (DoS) y otros tipos de tráfico malicioso.
-
-<ul>
-Nuestro plan de Cloudflare incluye: 
-<li>Mitigación DDoS
-<li>Certificación SSL universal
-<li>DNS
-<li>CDN con equilibrio de carga global 
-</ul>
 
 ### Diagrama de la red
 
