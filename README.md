@@ -1,5 +1,5 @@
 ![alt text](https://github.com/OscarJansana/Pentalink/blob/Im%C3%A1genes/PentaLink%20logo%20update.png)
-### PENTALINK
+<h1>PENTALINK</h1>
 ## índice
   * [Introducción](#introduccion)
   * [Materiales necesarios](#materiales-necesarios-(hardware-y-software))
