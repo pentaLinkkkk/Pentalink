@@ -91,6 +91,18 @@ Para la red seguiremos el esquema básico que se nos ha mostrado en clase. Dentr
  <br>- Firewall
 </ol>
 
+# Cloudflare
+
+Implementaremos Cloudflare en nuestra web para agilizar el tráfico de la red y disminuir los tiempos de carga. Además, también protegerá nuestra página de bots malintencionados, ataques de denegación de servicio (DoS) y otros tipos de tráfico malicioso.
+
+<ul>
+Nuestro plan de Cloudflare incluye: 
+<li>Mitigación DDoS
+<li>Certificación SSL universal
+<li>DNS
+<li>CDN con equilibrio de carga global 
+</ul>
+
 ### Diagrama de la red
 
 Este es el esquema de red que utilizaremos; es el mismo que se nos fue proporcionado en clase. 
