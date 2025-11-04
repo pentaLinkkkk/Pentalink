@@ -94,7 +94,8 @@ Para la red seguiremos el esquema básico que se nos ha mostrado en clase. Dentr
 ### Diagrama de la red
 
 Este es el esquema de red que utilizaremos; es el mismo que se nos fue proporcionado en clase. 
-<img width="2000" height="1400" alt="Red de clase (dhcp) (1)" src="https://github.com/user-attachments/assets/f7e37b3e-b033-4530-bf2f-24329aeafd99" />
+
+<img width="2000" height="1400" alt="Red de clase (dhcp) (2)" src="https://github.com/user-attachments/assets/d21bfec3-fcb5-44a0-8266-4405b9c06172" />
 
 ### Mapa físico
 
