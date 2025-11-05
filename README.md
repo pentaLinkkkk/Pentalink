@@ -131,6 +131,8 @@ Como colores para nuestro portal web hemos elegido un color turquesa oscuro como
 <br>A continuación, podemos ver los ejemplos de los tonos elegidos y cómo se verían combinados:
 <img width="950" height="350" alt="cp-removebg-preview" src="https://github.com/user-attachments/assets/1173cdba-1bb6-4e22-b0d5-e5763b073be0" />
 
+<br>Ahora que ya hemos mencionado el tema de los colores, hablemos sobre la tipografía que tendrá nuestra página web. Si bien es cierto que hemos estado investigando tipografías que pudieran combinar con el portal web que queremos crear no nos hemos decidido todavía por uno específico, ya que, dependiendo de la armonía fianl que tenga el diseño de los mapas de navegación elegiremos el tipo de letra al que más se ajuste. Mientras tanto, hemos pensado en hacer las pruebas y muestras del diseño con Open Sans.
+
 ### Mapa de navegabilidad
 Para poder desarrollar el mapa de navegabilidad sabemos que partimos de un menú principal home, que es el que se desplegará al abrir el portal web.
 Desde este punto central, es decir, el menú principal home los usuarios podrán acceder a los principales tipos de contenido y funcionalidades de gestión de usuario.
