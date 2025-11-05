@@ -80,7 +80,7 @@ Los módulos que consideramos relacionados de nuestro ciclo (Sistemas Microinfor
 <summary><h2>Materiales necesarios (Hardware y software)</h2></summary>
 Para la implementación de la infraestructura del proyecto hemos optado por el uso del Docker como parte principal de virtualización y despliegue de servicios, de esta forma, podremos tener en distintos contenedores los servicios de DNS, DHCP y WEB donde tendremos una mayor facilidad de mantenimiento, ya que, de esta forma podremos garantizar un mejor control de los recursos. Aparte de este servidor, implementaremos otro dedicado exclusivamente a las copias de seguridad, de esta forma podremos realizar respaldos automáticos y periódicos de los servicios principales para poder asegurar la disponibilidad y recuperación en caso de fallos o incidentes de seguridad.
  
- <br>** agregar parte del router y firewall ** Aparte, para poder reforzar la seguridad de la WEB, tenemos pensado implementar cloudflare como capa de protección y optimización del tráfico, de esta forma, podremos tener protección frente ataques y amenazas comunes
+ <br>Para tener conexión y poder levantar todos los servicios que requiere nuestro proyecto tenemos pensado que, en base a la red interna y firewall que tenemos en clase, crear nosotros nuestra propia red privada. Aparte, para poder reforzar la seguridad de la WEB, tenemos pensado implementar cloudflare como capa de protección y optimización del tráfico, de esta forma, podremos tener protección frente ataques y amenazas comunes
 
 <br>Por otro lado, para el apartado de los videojuegos hemos pensado en poder abarcar la mayor cantidad de lenguajes de programación que hay (es decir, admitirlos todos) para que, de esta forma, los usuarios tengan la libertad absoulta de subir los juegos que quieran. Para ello, diferenciaremos los lenguajes en 2 grupos, los que incluyen la tecnologia compatible y los que no, para los que sean compatibles los ejecutaremos directamente en el navegador y se jugará de forma completamente online con opción a descargar el juego, en caso de no ser compatible, se deberán descargar para poder ser jugados.
 
@@ -130,8 +130,8 @@ Para la red seguiremos el esquema básico que se nos ha mostrado en clase. Dentr
 
 ### Diagrama de la red
 
-Este es el esquema de red que utilizaremos; es el mismo que se nos fue proporcionado en clase. 
-
+El diagrama de red que hemos diseñado es el mismo que nos fue proporcionado en clase, a continuación podemos ver un ejemplo de cómo es este diagrama: <br>
+<br>
 <img width="2000" height="1400" alt="Red de clase (dhcp) (2)" src="https://github.com/user-attachments/assets/d21bfec3-fcb5-44a0-8266-4405b9c06172" />
 
 ### Mapa físico
