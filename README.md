@@ -136,6 +136,26 @@ Como colores para nuestro portal web hemos elegido un color turquesa oscuro como
 <img width="950" height="350" alt="cp-removebg-preview" src="https://github.com/user-attachments/assets/1173cdba-1bb6-4e22-b0d5-e5763b073be0" />
 
 ### Mapa de navegabilidad
+Para poder desarrollar el mapa de navegabilidad sabemos que partimos de un menú principal home, que es el que se desplegará al abrir el portal web.
+Desde este punto central, es decir, el menú principal home los usuarios podrán acceder a los principales tipos de contenido y funcionalidades de gestión de usuario.
+
+<br>En esta pantalla principal es donde organizamos el contenido en diferentes cateogrías, donde se podrá acceder al menú de imágenes, menú de música, menú de juegos, menú de blogs y al menú de vídeos. Aparte, en este menú principal, el usuario podrá interaccionar con las publicaciones, pero, en este caso, podrá hacerlo únicamente si el usuario está logueado.
+
+<br>Si volvemos al menú principal nos encontraremos con las funcionalidades de usuario, donde serán las que se encarguen de gestionar la persencia del usuario en el portal y permitirá acceder al contenido personalizado y crear su spropias publicaciones. Para explicar estas funcionalidades, vamos a dividirlo en 3 subgrupos:
+
+<ol>
+<br><li><b>Acceso a la plataforma</b>
+Aquí dispondremos de las opciones de inicio de sesión (login), para poder permitir a los usuarios registrados acceder y la opción de registro, donde permitiremos que los nuevos usuarios puedan crear su propia cuenta.
+<br><li><b>Perfiles</b>
+Aquí nos dividimos en otros 2 grupos, el primer grupo es el del perfil de otros usuarios, donde nos permitirá seguirlos, comentarles y ver todas sus publicaciones, de esta forma el usuario podrá suscribirse a las nuevas publicaciones, ver todo el contenido que ha compartido el usuario y finalmente, poder comentarlo.
+<br>Por otro lado, contamos con el perfil propio, donde tendremos las opciones de editar el perfil y borrar o editar un borrador que tenga el usuario.
+<br><li><b>Subida y gestión de contenido</b>
+Aquí tendremos las opciones de publicar el tipo de contenido que deseemos y aparte, guardar, borrar o editar los borradores que tengamos creados.
+</ol>
+<br>Resumiendo el mapa de navegabilidad tenemos la parte del consumidor de contenido que entrará en el menú home, podrá elegir el menú deseado y posteriormente la posibilidad de interactuar con el contenido de los usuarios en caso que esté logueado y por el otro lado, el que quiera crear contenido tendrá que loguearse primero en el menú  home para poder entrar a su perfil propio y subir el contenido que desea.
+
+<br>A continuación, agregamos una imagen que sirve de referencia y hace más visual esta explicación:<br>
+<br>
 <img width="2476" height="1365" alt="PentaLink Mapa de mockup" src="https://github.com/user-attachments/assets/16a5f33c-9c2a-471b-bee6-5835056e9134"/>
 
 </details>
