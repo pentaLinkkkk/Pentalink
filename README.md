@@ -158,6 +158,10 @@ Desde este punto central, es decir, el menú principal home los usuarios podrán
 <br>
 <img width="2476" height="1365" alt="PentaLink Mapa de mockup" src="https://github.com/user-attachments/assets/16a5f33c-9c2a-471b-bee6-5835056e9134"/>
 
+<br>A continuación, podréis ver el concepto de la página principal (Index) de PentaLink.
+<br>
+<img width="1366" height="1274" alt="Index" src="https://github.com/user-attachments/assets/c3dbdfcb-dd75-446e-b1e6-a8ac352c4183" />
+
 </details>
 <details>
 <summary><h2>Servicios</h2></summary>
