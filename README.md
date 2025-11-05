@@ -119,8 +119,6 @@ Este es el esquema de red que utilizaremos; es el mismo que se nos fue proporcio
 <details>
 <summary><h2>Web</h2></summary>
 
-### Diseño
-
 ### Mockup
 Como colores para nuestro portal web hemos elegido un color turquesa oscuro como base, esto se debe a que lo hemos considerado un color muy bonito y sólido con el que poder hacer grandes combinaciones gracias a su versatilidad. Aparte de ello, consideramos que este color puede llegar a transmitir un punto elegante donde evitamos los tonos más comunes y combinables con el blanco o negro para que se haga una vista menos pesada y más suavizada.
 
@@ -156,7 +154,7 @@ Desde este punto central, es decir, el menú principal home los usuarios podrán
 <br>
 <img width="2476" height="1365" alt="PentaLink Mapa de mockup" src="https://github.com/user-attachments/assets/16a5f33c-9c2a-471b-bee6-5835056e9134"/>
 
-### Idea planificación diseño pestañas de la web
+### Idea y diseño de la planificación diseño pestañas de la web
 
 <br>Con canva hemos empezado a diseñar una idea de cómo nos gustaría que quedara el diseño web del portal para que así, la idea quede más visual y partamos de una base a la hora de tener que empezar a crear todo el servicio web.<br>
 <br>Esta, sería la idea de cómo se vería la página princial o el llamado menú home del portal:<br>
