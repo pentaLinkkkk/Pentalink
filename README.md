@@ -145,12 +145,12 @@ Desde este punto central, es decir, el menú principal home los usuarios podrán
 
 <ol>
 <br><li><b>Acceso a la plataforma</b>
-Aquí dispondremos de las opciones de inicio de sesión (login), para poder permitir a los usuarios registrados acceder y la opción de registro, donde permitiremos que los nuevos usuarios puedan crear su propia cuenta.
+<br>Aquí dispondremos de las opciones de inicio de sesión (login), para poder permitir a los usuarios registrados acceder y la opción de registro, donde permitiremos que los nuevos usuarios puedan crear su propia cuenta.
 <br><li><b>Perfiles</b>
-Aquí nos dividimos en otros 2 grupos, el primer grupo es el del perfil de otros usuarios, donde nos permitirá seguirlos, comentarles y ver todas sus publicaciones, de esta forma el usuario podrá suscribirse a las nuevas publicaciones, ver todo el contenido que ha compartido el usuario y finalmente, poder comentarlo.
+<br>Aquí nos dividimos en otros 2 grupos, el primer grupo es el del perfil de otros usuarios, donde nos permitirá seguirlos, comentarles y ver todas sus publicaciones, de esta forma el usuario podrá suscribirse a las nuevas publicaciones, ver todo el contenido que ha compartido el usuario y finalmente, poder comentarlo.
 <br>Por otro lado, contamos con el perfil propio, donde tendremos las opciones de editar el perfil y borrar o editar un borrador que tenga el usuario.
 <br><li><b>Subida y gestión de contenido</b>
-Aquí tendremos las opciones de publicar el tipo de contenido que deseemos y aparte, guardar, borrar o editar los borradores que tengamos creados.
+<br>Aquí tendremos las opciones de publicar el tipo de contenido que deseemos y aparte, guardar, borrar o editar los borradores que tengamos creados.
 </ol>
 <br>Resumiendo el mapa de navegabilidad tenemos la parte del consumidor de contenido que entrará en el menú home, podrá elegir el menú deseado y posteriormente la posibilidad de interactuar con el contenido de los usuarios en caso que esté logueado y por el otro lado, el que quiera crear contenido tendrá que loguearse primero en el menú  home para poder entrar a su perfil propio y subir el contenido que desea.
 
