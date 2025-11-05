@@ -65,8 +65,6 @@ Para la implementación de la infraestructura del proyecto hemos optado por el u
 <br>El grupo que se considera compatible serían HTML5, JavaScript (JS), WebAssembly (WASM) y los que puedan ser interpretados a través de JS o WASM como Python, Ruby, Lua, C, C++ o Rust, mientras que los no compatibles son los que se encuentran fuera de esta lista. De esta forma, podemos garantizar que se puedan jugar todos los juegos que suban los usuarios utilizando el lenguaje de programación que quieran. 
 
 
-
-
 ### Recursos
 Los recursos principales que estamos utilizando son aquellos que estamos subiendo en el <a href="https://trello.com/b/C53JrxYj/amnis-project">Trello</a>, donde estamos añadiendo enlaces de tutoriales y cursos para estudiar sobre los temas que aún no controlados, aparte de ello, también estamos creando documentos aparte con muestros apuntes y explicaciones para poder aprender sobre Docker, MySql, PHP y la implementación del Cloudflare.
 
@@ -158,7 +156,10 @@ Desde este punto central, es decir, el menú principal home los usuarios podrán
 <br>
 <img width="2476" height="1365" alt="PentaLink Mapa de mockup" src="https://github.com/user-attachments/assets/16a5f33c-9c2a-471b-bee6-5835056e9134"/>
 
-<br>A continuación, podréis ver el concepto de la página principal (Index) de PentaLink.
+### Idea planificación diseño pestañas de la web
+
+<br>Con canva hemos empezado a diseñar una idea de cómo nos gustaría que quedara el diseño web del portal para que así, la idea quede más visual y partamos de una base a la hora de tener que empezar a crear todo el servicio web.<br>
+<br>Esta, sería la idea de cómo se vería la página princial o el llamado menú home del portal:<br>
 <br>
 <img width="1366" height="1274" alt="Index" src="https://github.com/user-attachments/assets/c3dbdfcb-dd75-446e-b1e6-a8ac352c4183" />
 
