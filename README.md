@@ -53,7 +53,29 @@ Los módulos que consideramos relacionados de nuestro ciclo (Sistemas Microinfor
 <li>Seguridad informática: Para reforzar la seguridad de la web y nuestros servidores (firewall, copias de seguridad...)</li>
 <li>Sistemas operativos en red: Para instalar y configurar los sistemas operativos y máquinas virtuales que utilizaremos para desarrollar el proyecto.</li>
 </ul>
+
+### Tareas a realizar
+
+| ID       | Prioridad| Objetivo | Funcionalidad | Fecha entrega | estado |
+|----------|----------|----------|---------------|---------------|--------|
+| IDO | MEDIA | Registrar usuarios | Deberá crearse un sistema de registro de usuarios y posterior login que guarde información individual del usuario | 20/02/2026 | Pendiente |
+| ID1 | MEDIA | Programación frontend de la página | Deberá completarse el diseño y programar toda la parte frontend de la página web. | xx/01/2026 | Pendiente | 
+| ID2 | MEDIA | Programación backend de la página | Programación de toda la parte backend de la página. | xx/03/2026 | Pendiente |
+| ID 3 | MEDIA | Creación de la base de datos | Deberá diseñarse la base de datos de la web e implementarse con MySQL. | xx/01/2026 | Activo |
+| ID4 | Alta | Diseño de la web | Deberá completarse el diseño final de la página web, incluyendo las interfaces de: página principal, ejemplo de publicación y perfil de usuario. | xx/11/2025 | Activo |
+| ID5 | Media | Configuración del servidor backup | Creación y configuración de un servidor de respaldo que cree copias de seguridad de: servidor Apache, configuración del DNS, código PHP, base de datos, Firewall. | xx/01/2026 | Pendiente |
+| ID6 | Media | Configuración del servidor DNS | Creación y configuración de un servidor DNS para la página web. Se utilizará Pi-Hole. | xx/02/2026 | Pendiente |
+| ID7 | Media | Conexión entre MySQL y la web con PHP | Deberá programarse en PHPmyadmin la conexión entre la base de datos (MySQL) y la web (html). | xx/03/2026 | Pendiente |
+| ID8 | Media | Creación del servidor web | Creación de un servidor Apache para almacenar la página web (html, css, javascript). | xx/02/2026 | Pendiente |
+| ID9 | Media | Implementación cloudflare | Implementación de cloudflare en la web para agilizar los tiempos de carga y protegerla ante tráfico malicioso. | xx/04/2026 | Pendiente |
+| ID10 | Media | Creación de los contenedores Docker | Creación de contenedores de Docker para almacenar los servidores. | xx/12/2026 | Pendiente |
+| ID11 | Media | Gestión de los juegos | Hacer que ciertos juegos sean ejecutables en el navegador, y que los que no sean compatibles, se deban subir y descargar en formato .zip | xx/03/2026 | Activo |
+| ID12 | Media | Gestión de los archivos | Administrar la subida de ficheros de parte de los usuarios, clasificar a qué tipo de publicación pertenecen (qué tipo de archivos están permitidos para cada tipo de publicación). | xx/02/2026 | Pendiente |
+| ID13 | Media | Configuración firewall | Configurar el firewall de la red interna del proyecto. | xx/02/2026 | Pendiente |
+
+
 </details>
+
 <details>
 <summary><h2>Materiales necesarios (Hardware y software)</h2></summary>
 Para la implementación de la infraestructura del proyecto hemos optado por el uso del Docker como parte principal de virtualización y despliegue de servicios, de esta forma, podremos tener en distintos contenedores los servicios de DNS, DHCP y WEB donde tendremos una mayor facilidad de mantenimiento, ya que, de esta forma podremos garantizar un mejor control de los recursos. Aparte de este servidor, implementaremos otro dedicado exclusivamente a las copias de seguridad, de esta forma podremos realizar respaldos automáticos y periódicos de los servicios principales para poder asegurar la disponibilidad y recuperación en caso de fallos o incidentes de seguridad.
