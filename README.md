@@ -92,10 +92,9 @@ Los recursos principales que estamos utilizando son aquellos que estamos subiend
 
 #### Cloudflare
 
-Implementaremos Cloudflare en nuestra web para agilizar el tráfico de la red y disminuir los tiempos de carga. Además, también protegerá nuestra página de bots malintencionados, ataques de denegación de servicio (DoS) y otros tipos de tráfico malicioso.
+La idea que tenemos pensada para implementar Cloudflare en nuestro portal web será para agilizar el tráfico de la red y disminuir los tiempos de carga. Aparte de ello, sabemos que cloudflare nos protegerá de los bots malintencionados, ataques de denegación de servicio (DoS) entre otros tipos de tráfico malicioso, donde el plan de cloudflare incluye:
 
 <ul>
-Nuestro plan de Cloudflare incluye: 
 <li>Mitigación DDoS
 <li>Certificación SSL universal
 <li>DNS
