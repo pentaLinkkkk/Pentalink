@@ -24,7 +24,7 @@ Somos un grupo de estudiantes de IFP Innovación en formación profesional Hospi
 <br><li>Oscar Jansana:<br>
 Considero que parto de un conocimiento bastante básico por no decir nulo sobre la programación y el desarrollo web, a pesar de ello, se puede decir que parto de una buena base para el diseño. Si bien es cierto que esta base del diseño no es aplicable a las páginas web, estoy muy intrigado y con ganas de aprender sobre el tema, para poder aplicar los conocimientos de diseño y aprender sobre programación y desarrollo web.<br>
 <br><li>Paula Simó:<br>
-Considero que parto de un conocimiento básico o intermedio sobre la programación y desarrollo web, ya que, anteriormente he creado diversos programas y webs, pero bastante básicos. Considero que, gracias al conocimiento y entendimiento de las bases de ellos nos resultará más fácil el desarrollar la parte web a pesar que mis compañeros partan de una base menor.<br>
+Considero que parto de un conocimiento básico o intermedio sobre la programación y desarrollo web, ya que, anteriormente he creado diversos programas y webs, pero bastante básicos. Considero que, gracias al conocimiento y entendimiento de las bases de ellos nos resultará más fácil el desarrollar la parte web a pesar que mis compañeros partan de una base menor o igual.<br>
 <br><li>Aleksei Zagrebelnii:<br>
 Considero que parto de un conocimiento ------<br>
 </ul>
