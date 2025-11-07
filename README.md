@@ -15,9 +15,19 @@
 <details>
 <summary><h2>Introducción</h2></summary>
 
-Somos un grupo de estudiantes de IFP Innovación en formación profesional Hospitalet del Llobregat, nuestros nombres son Paula Simó, Oscar Jansana y Aleksei Zagrebelnii. Tenemos como idea de proyecto intermodular el crear un portal web donde los usuarios podrían registrarse y compartir contenido multimedia creado por ellos mismos. Esta idea ha sido referenciada por otros 2 portales <a href="https://www.newgrounds.com/">New Grounds</a>, donde hemos cogido como referencia el poder subir diversos distintos tipos de entretenimiento y, posteriormente <a href="https://spacehey.com/">MySpace</a>, actualemte conocido como SpaceHey como formato para la creación de usuarios.<br>
-<br>Como nombre del proyecto hemos decidido poner PentaLink, este, referencia a los 5 tipos de archivos que se podrán subir al portal web, que serán Blogs, Imágenes, Música, Vídeos y Videojuegos.
+Somos un grupo de estudiantes de IFP Innovación en formación profesional Hospitalet del Llobregat y nuestros nombres son Paula Simó, Oscar Jansana y Aleksei Zagrebelnii. Aquí documentaremos todo nuestro proyecto intermodular del grado que estamos cursando, que es el de Sistemas Microinformáticos y Redes.<br>
 
+<br>Nuestra idea para este proyecto es la de crear un portal web donde los usuarios podrian registrarse y compartir contenido multimedia creado por ellos mismos. Esta idea ha sido referenciada por otros 2 portales <a href="https://www.newgrounds.com/">New Grounds</a>, donde hemos cogido como referencia el poder subir diversos distintos tipos de entretenimiento y, posteriormente <a href="https://spacehey.com/">MySpace</a>, actualemte conocido como SpaceHey como formato para la creación de usuarios donde hemos decidido nombrar este proyecto como PentaLink, para referenciar a los 5 tipos de archivos que se podrán subir al portal web, donde estos serán los blogs, imágenes, música, vídeos y videojuegos.<br>
+
+<br>Consideramos que este proyecto es bastante ambicioso y todo un reto que queremos cumplir, ya que, cada uno partimos con poco conocimiento y con bases distintas que queremos ampliar para poder cumplir con este proyecto. Nuestras bases son las siguientes:<br>
+<ul>
+<br><li>Oscar Jansana:<br>
+Considero que parto de un conocimiento bastante básico por no decir nulo sobre la programación y el desarrollo web, a pesar de ello, se puede decir que parto de una buena base para el diseño. Si bien es cierto que esta base del diseño no es aplicable a las páginas web, estoy muy intrigado y con ganas de aprender sobre el tema, para poder aplicar los conocimientos de diseño y aprender sobre programación y desarrollo web.<br>
+<br><li>Paula Simó:<br>
+Considero que parto de un conocimiento básico o intermedio sobre la programación y desarrollo web, ya que, anteriormente he creado diversos programas y webs, pero bastante básicos. Considero que, gracias al conocimiento y entendimiento de las bases de ellos nos resultará más fácil el desarrollar la parte web a pesar que mis compañeros partan de una base menor.<br>
+<br><li>Aleksei Zagrebelnii:<br>
+Considero que parto de un conocimiento ------<br>
+</ul>
 
 ### Objetivo e ideas
 Como objetivo principal, queremos crear un portal web funcional donde cada usuario pueda subir el contenido que desee, al igual que visitar el contenido subido por los otoros usuarios con los 5 tipos de archivos mencionados anteriormente (blogs, imágenes, música, vídeos y videojuegos) diferenciados por sus respectivas secciones. Para en el caso de las imágenes, música y vídeos permitiríamos que se pudieran subir archivos con distintas extensiones por cada tipo. Como ejemplo para terminar de entender a qué nos referimos con las distintas extensiones por archivo sería para el caso de las imágenes, que el usuario pudiera subir imágenes jpg, jpeg, pnj (entre otros que también existen), en el caso de música podría ser con formato mp3 o wav y finalmente, en el caso de vídeos mp4 o wmv.<br>
