@@ -190,14 +190,23 @@ Desde este punto central, es decir, el menú principal home los usuarios podrán
 ### Idea y diseño de la planificación diseño pestañas de la web
 
 <br>Con canva hemos empezado a diseñar una idea de cómo nos gustaría que quedara el diseño web del portal para que así, la idea quede más visual y partamos de una base a la hora de tener que empezar a crear todo el servicio web.<br>
-<br>Esta, sería la idea de cómo se vería la página princial o el llamado menú home del portal:<br>
-<br>
+<br>Esta, sería la idea de cómo se vería la página princial o el llamado menú home del portal:
 <img width="1366" height="1274" alt="Index" src="https://github.com/user-attachments/assets/c3dbdfcb-dd75-446e-b1e6-a8ac352c4183" />
-
+<br><br>
+Así se vería TU perfil:
+<img width="1366" height="1806" alt="Tu Perfil" src="https://github.com/user-attachments/assets/60665f87-54b6-4f43-b412-de9e27f6ac1c" />
+<br><br>
+Así se vería el perfil de OTRO USUARIO QUE NO SEA EL TUYO:
+<img width="1366" height="1806" alt="Perfil de otro usuario" src="https://github.com/user-attachments/assets/e8872520-b516-4b2c-8395-756474fe9248" />
+La diferencia más notoria entre tu perfil y la de cualquier otro usuario, es que el botón de seguir se sustituye por el de editar, en el cual si lo clicas te lleva a la página para editar tu perfil.
+<br><br>
+Y finalmente así se vería la página de visualización de un vídeo:
+<img width="1366" height="1265" alt="Página de visualización (vídeo)" src="https://github.com/user-attachments/assets/b95808e3-1ce2-44b9-a210-d66ef82a2c6f" />
+<br><br>
 </details>
 <details>
 <summary><h2>Servicios</h2></summary>
- 
+
 ### DNS
 
 ### DHCP
