@@ -203,6 +203,13 @@ La diferencia más notoria entre tu perfil y la de cualquier otro usuario, es qu
 Y finalmente así se vería la página de visualización de un vídeo:
 <img width="1366" height="1265" alt="Página de visualización (vídeo)" src="https://github.com/user-attachments/assets/b95808e3-1ce2-44b9-a210-d66ef82a2c6f" />
 <br><br>
+
+## Esquema de la base de datos
+
+Hemos esquemado la base de datos de la web teniendo en cuenta cuatro tablas principales: Publicaciones, Usuarios, Comentarios y Borradores. Hemos hecho una tabla a parte para Borradores en vez de añadirlos dentro de Publicaciones ya que, cuando se publique un post, se eliminarán el registro correspondiente de la tabla Borrador y se creará uno nuevo en Publicaciones.
+
+<img width="3180" height="2264" alt="esquema base de datos" src="https://github.com/user-attachments/assets/f925dc36-8aee-42ad-8efd-1e9454c373ef" />
+
 </details>
 <details>
 <summary><h2>Servicios</h2></summary>
