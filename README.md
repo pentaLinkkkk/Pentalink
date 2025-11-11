@@ -1,6 +1,6 @@
 <h1>PENTALINK</h1>
 
-![alt text](https://github.com/OscarJansana/Pentalink/blob/Im%C3%A1genes/PentaLink%20logo%20update.png)
+![Pentalink Promo 1](https://github.com/user-attachments/assets/f0505b83-3a4f-4e2e-bdea-88b68a445d56)
 
 ## índice
   * [Introducción](#introduccion)
