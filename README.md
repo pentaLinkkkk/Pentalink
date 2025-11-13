@@ -191,25 +191,30 @@ Desde este punto central, es decir, el menú principal home los usuarios podrán
 ### Idea y diseño de la planificación diseño pestañas de la web
 
 <br>Con canva hemos empezado a diseñar una idea de cómo nos gustaría que quedara el diseño web del portal para que así, la idea quede más visual y partamos de una base a la hora de tener que empezar a crear todo el servicio web.<br>
-<br>Esta, sería la idea de cómo se vería la página princial o el llamado menú home del portal:
+<br>Esta, sería la idea de cómo se vería la página princial o el llamado menú home del portal:<br><br>
 <img width="1366" height="1274" alt="Index" src="https://github.com/user-attachments/assets/c3dbdfcb-dd75-446e-b1e6-a8ac352c4183" />
 <br><br>
-Así se vería TU perfil:
+<br>Antes de mostrar cómo se verían las páginas de los usuarios (ya sea tu propio perfil o el de otro usuario), cabe mencionar que la principal diferencia entre el perfil propio del usuario y el perfil de cualquier otro usuario será que el botón de seguir será sustituído por el de editar, por lo que cuando clickas dicho botón, harás una función u otra.<br>
+<br>Empezando por cómo veríamos el perfil personal, es decir <strong>tu perfil personal</strong> sería de la siguiente forma:<br><br>
 <img width="1366" height="1806" alt="Tu Perfil" src="https://github.com/user-attachments/assets/60665f87-54b6-4f43-b412-de9e27f6ac1c" />
 <br><br>
-Así se vería el perfil de OTRO USUARIO QUE NO SEA EL TUYO:
+En cambio, para ver el perfil de <strong>otro usuario que no sea el tuyo</strong> se vería como podemos observar en la imagen inferior:<br><br>
 <img width="1366" height="1806" alt="Perfil de otro usuario" src="https://github.com/user-attachments/assets/e8872520-b516-4b2c-8395-756474fe9248" />
-La diferencia más notoria entre tu perfil y la de cualquier otro usuario, es que el botón de seguir se sustituye por el de editar, en el cual si lo clicas te lleva a la página para editar tu perfil.
-<br><br>
-Y finalmente así se vería la página de visualización de un vídeo:
-<img width="1366" height="1265" alt="Página de visualización (vídeo)" src="https://github.com/user-attachments/assets/b95808e3-1ce2-44b9-a210-d66ef82a2c6f" />
+
+<br>Finalmente, hemos ejemplificado cómo se vería la página de visualización de un vídeo, pero, cabe recalcar que sería similar para los 5 tipos de publicaciones, ya que lo que cambiaría sería el tipo de contenido y no la distribución. Así es cómo se vería:<br><br>
+<img width="1366" height="1265" alt="Página de visualización (vídeo)" src="https://github.com/user-attachments/assets/3f68a2ad-3292-4f9a-a035-9313fc58af95" />
+
 <br><br>
 
 ## Esquema de la base de datos
 
-Hemos esquemado la base de datos de la web teniendo en cuenta cuatro tablas principales: Publicaciones, Usuarios, Comentarios y Borradores. Hemos hecho una tabla a parte para Borradores en vez de añadirlos dentro de Publicaciones ya que, cuando se publique un post, se eliminarán el registro correspondiente de la tabla Borrador y se creará uno nuevo en Publicaciones.
+Hemos esquemado la base de datos de la web teniendo en cuenta cuatro tablas principales: Publicaciones, Usuarios, Comentarios y Borradores. Hemos hecho una tabla a parte para Borradores en vez de añadirlos dentro de Publicaciones ya que, cuando se publique un post, se eliminarán el registro correspondiente de la tabla Borrador y se creará uno nuevo en Publicaciones.<br>
 
 <img width="3180" height="2264" alt="esquema base de datos" src="https://github.com/user-attachments/assets/f925dc36-8aee-42ad-8efd-1e9454c373ef" />
+
+<br>Posteriormente, hemos pasado este esquema al MySQL Workbench para ver ejemplificado y tener el script de cómo serán las tablas de nuestra base de datos y cómo estarán relacionadas:<br>
+
+<img width="785" height="605" alt="Esquema DB Workbench" src="https://github.com/user-attachments/assets/f766ac33-29ee-4ea1-8bef-f62b62bfafbd" />
 
 </details>
 <details>
