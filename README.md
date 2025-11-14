@@ -152,6 +152,9 @@ El diagrama de red que hemos diseñado es el mismo que nos fue proporcionado en 
 ### Mapa físico
 
 ### Mapa lógico
+Aquí podéis ver el Mapa lógico con la manera de como organizaremos las conexiones de red para transmitir la información entre dispositivos:
+![Mapa lógico PentaLink](https://github.com/user-attachments/assets/251b2c1a-45ae-4cd4-8f6e-f36fadd9f6af)
+
 </details>
 <details>
 <summary><h2>Web</h2></summary>
