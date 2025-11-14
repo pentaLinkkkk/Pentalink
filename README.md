@@ -99,7 +99,12 @@ Para la implementación de la infraestructura del proyecto hemos optado por el u
 
 
 ### Recursos
-Los recursos principales que estamos utilizando son aquellos que estamos subiendo en el <a href="https://trello.com/b/C53JrxYj/amnis-project">Trello</a>, donde estamos añadiendo enlaces de tutoriales y cursos para estudiar sobre los temas que aún no controlados, aparte de ello, también estamos creando documentos aparte con muestros apuntes y explicaciones para poder aprender sobre Docker, MySql, PHP y la implementación del Cloudflare.
+Los recursos principales que estamos utilizando son aquellos que estamos subiendo en el <a href="https://trello.com/b/C53JrxYj/amnis-project">Trello</a>, donde estamos añadiendo enlaces de tutoriales y cursos para estudiar sobre los temas que aún no controlados, aparte de ello, también estamos creando documentos aparte con muestros apuntes y explicaciones para poder aprender sobre Docker, MySql, PHP y la implementación del Cloudflare.<br>
+
+<br>Aparte del Trello, también tenemos una carpeta compartida en <a href="https://drive.google.com/drive/folders/1gv8gQzXm4zU18VtglLOZfn3id1FyxKgg?usp=sharing">Google Drive</a> donde tenemos todos los documentos y apuntes que consultamos, donde también contamos con el <a href="https://docs.google.com/spreadsheets/d/1nRaw3eM4FcsuYFAVGD6RTRX5Nn1_dZujo8Efnikgn2o/edit?usp=sharing">excel</a> del reparto de tareas y el <a href="https://docs.google.com/spreadsheets/d/1gl88bSEsuXVYjvYffr7b5FEEBTV1mSYnBmcUYTNMQDc/edit?usp=sharing">diagrama de gantt</a>.
+
+#### Sistemas operativos
+Para la creación del portal utilizaremos el ordenador de la clase, que cuenta con el sistema operativo Windows 11, mientras que toda la parte del servidor y Docker que utilizaremos estará almacenado en Linux.
 
 #### Cloudflare
 
