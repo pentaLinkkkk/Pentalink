@@ -121,20 +121,20 @@ La idea que tenemos pensada para implementar Cloudflare en nuestro portal web se
 
 <details>
 <summary><h2>Red</h2></summary>
-Para la red seguiremos el esquema básico que se nos ha mostrado en clase. Dentro de nuestra red interna, tendremos cuatro servidores:
+Para el servicio de red, tenemos pensado utilizar el mismo esquema básico que se nos ha mostrado en clase. Es decir, utilizar como red externa la red de clase y, como red interna, nuestra red privada, donde en ella contaremos con cuatro servidores, que son los siguentes:
 <ol>
 <li><b>Servidor web</b>
- <br>Donde almacenaremos: 
+ <br>Este lo usaremos para almacenar los siguientes datos:
  <br>- Apache
  <br>- PHP
  <br>- Html, Css y JavaScript
 <li><b>Base de datos</b>
- <br>Que contendrá:
+ <br>Que será el servidor encargado de almacenar lo siguiente:
  <br>- MySQL
  <br>- PHPmyadmin
 <li><b>Servidor DNS</b>
 <li><b>Backup</b>
- <br>Donde haremos copias de:
+ <br>Donde queremos almacenar las copias de seguridad de los servicios de nuestro portal, que serían:
  <br>- Apache
  <br>- PHP
  <br>- MySQL (Base de datos)
