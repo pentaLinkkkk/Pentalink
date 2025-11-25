@@ -67,6 +67,8 @@ Los módulos que consideramos relacionados de nuestro ciclo (Sistemas Microinfor
 
 ### Tareas a realizar
 
+En esta tabla hemos clasificado las tareas que debemos realizar para completar el proyecto. Asimismo, hemos escogido unas fechas aproximadas en las que creemos que podremos tenerlas acabadas. 
+
 | ID       | Prioridad| Objetivo | Funcionalidad | Fecha entrega | estado |
 |----------|----------|----------|---------------|---------------|--------|
 | IDO | MEDIA | Registrar usuarios | Deberá crearse un sistema de registro de usuarios y posterior login que guarde información individual del usuario | 20/02/2026 | Pendiente |
