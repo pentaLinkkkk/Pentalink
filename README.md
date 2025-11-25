@@ -1,5 +1,3 @@
-![Pi-hole_vector_logo](https://github.com/user-attachments/assets/763b8f03-90c5-4bf2-b477-0a99a0c93d3a)<h1>PENTALINK</h1>
-
 ![Pentalink Promo 1](https://github.com/user-attachments/assets/f0505b83-3a4f-4e2e-bdea-88b68a445d56)
 
 ## índice
