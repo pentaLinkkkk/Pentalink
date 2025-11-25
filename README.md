@@ -229,6 +229,7 @@ Hemos esquemado la base de datos de la web teniendo en cuenta cuatro tablas prin
 ### DNS
 Para el DNS utilizaremos PI-HOLE. Este servicio es especial porque, además de otorgarnos un DNS, protege nuestra red de rastreos en línea.
 
+
 <img width="258" height="380" alt="image" src="https://github.com/user-attachments/assets/dcf641ea-76b5-4cbe-a1eb-f6a58edb2c20" />
 
 ### DHCP
@@ -236,6 +237,8 @@ El DHCP será brindado por el propio firewall.
 
 ### Apache
 Apache nos servirá de servidor web. Nos permite alojar páginas web sencillas y poco dinámicas, por lo que será perfecto para nuestro proyecto.
+
+
 <img width="512" height="195" alt="image" src="https://github.com/user-attachments/assets/25a32c3e-0247-4cb5-9957-3e877093a4f4" />
 
 
@@ -244,6 +247,8 @@ Nuestro firewall será brindado por el propio router del instituto.
 
 ### Copias de seguridad
 Haremos copias de seguridad de nuestro proyecto con TRUENAS. Lo hemos escogido porque al haber trabajado con él en clase, nos será más sencillo de utilizar.
+
+
 <img width="280" height="280" alt="image" src="https://github.com/user-attachments/assets/cfffc3a7-906d-4dad-afab-c454b133b907" />
 
 
