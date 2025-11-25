@@ -1,4 +1,4 @@
-<h1>PENTALINK</h1>
+![Pi-hole_vector_logo](https://github.com/user-attachments/assets/763b8f03-90c5-4bf2-b477-0a99a0c93d3a)<h1>PENTALINK</h1>
 
 ![Pentalink Promo 1](https://github.com/user-attachments/assets/f0505b83-3a4f-4e2e-bdea-88b68a445d56)
 
@@ -151,10 +151,8 @@ El diagrama de red que hemos diseñado es el mismo que nos fue proporcionado en 
 <br>
 <img width="2000" height="1400" alt="Red de clase (dhcp) (2)" src="https://github.com/user-attachments/assets/d21bfec3-fcb5-44a0-8266-4405b9c06172" />
 
-### Mapa físico
-
 ### Mapa lógico
-Aquí podéis ver el Mapa lógico con la manera de como organizaremos las conexiones de red para transmitir la información entre dispositivos:
+Este es el Mapa lógico con la organización de las conexiones de red para transmitir la información entre los equipos:
 ![Mapa lógico PentaLink](https://github.com/user-attachments/assets/251b2c1a-45ae-4cd4-8f6e-f36fadd9f6af)
 
 </details>
@@ -231,14 +229,25 @@ Hemos esquemado la base de datos de la web teniendo en cuenta cuatro tablas prin
 <summary><h2>Servicios</h2></summary>
 
 ### DNS
+Para el DNS utilizaremos PI-HOLE. Este servicio es especial porque, además de otorgarnos un DNS, protege nuestra red de rastreos en línea.
+
+<img width="258" height="380" alt="image" src="https://github.com/user-attachments/assets/dcf641ea-76b5-4cbe-a1eb-f6a58edb2c20" />
 
 ### DHCP
+El DHCP será brindado por el propio firewall.
 
 ### Apache
+Apache nos servirá de servidor web. Nos permite alojar páginas web sencillas y poco dinámicas, por lo que será perfecto para nuestro proyecto.
+<img width="512" height="195" alt="image" src="https://github.com/user-attachments/assets/25a32c3e-0247-4cb5-9957-3e877093a4f4" />
+
 
 ### Firewall
+Nuestro firewall será brindado por el propio router del instituto.
 
 ### Copias de seguridad
+Haremos copias de seguridad de nuestro proyecto con TRUENAS. Lo hemos escogido porque al haber trabajado con él en clase, nos será más sencillo de utilizar.
+<img width="280" height="280" alt="image" src="https://github.com/user-attachments/assets/cfffc3a7-906d-4dad-afab-c454b133b907" />
+
 
 </details>
 <details>
