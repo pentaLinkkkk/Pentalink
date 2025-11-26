@@ -243,7 +243,9 @@ Apache nos servirá de servidor web. Nos permite alojar páginas web sencillas y
 
 
 ### Firewall
-Nuestro firewall será brindado por el propio router del instituto.
+Utilizaremos pf-sense como firewall para nuestra red interna.
+![1200px-PfSense_logo](https://github.com/user-attachments/assets/095c9ce9-5561-4643-b509-732c7ea1f424)
+
 
 ### Copias de seguridad
 Haremos copias de seguridad de nuestro proyecto con TRUENAS. Lo hemos escogido porque al haber trabajado con él en clase, nos será más sencillo de utilizar.
