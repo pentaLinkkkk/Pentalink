@@ -258,7 +258,7 @@ Haremos copias de seguridad de nuestro proyecto con TRUENAS. Lo hemos escogido p
 <details>
 <summary><h2>Incidencias</h2></summary>
 
-## Incidencia 1 - backup
+#### Incidencia 1 - backup
 Al no tener aún configurado un servidor para hacer copias de seguridad, perdimos parte del trabajo hecho el día 26 de noviembre. Hubo un error al mover los ficheros de trabajo de la unidad C: del PC de clase al disco duro personal, por lo que se borró el progreso que habíamos hecho ese día. Por suerte, era poco y se pudo volver a hacer durante el fin de semana en casa.
 
 </details>
