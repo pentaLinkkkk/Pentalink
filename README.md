@@ -246,10 +246,17 @@ En [https://pi-hole.net/ ](https://docs.pi-hole.net/) podemos obtener la documen
 Nosotros utilizaremos Pi-Hole dentro de un contenedor Docker, por lo que el despliegue de nuestros servidores será diferente a que si usáramos servidores alojados en máquinas virtuales.
 
 En visual studio, nos conectamos por SSH a una máquina virtual con Debian y creamos las carpetas donde alojaremos nuestros servidores.
+
+
 <img width="292" height="116" alt="image" src="https://github.com/user-attachments/assets/7cd96331-5406-487c-9f19-f684ce3288f1" />
+
+
 Una vez hecho esto, comenzamos a redactar un fichero docker-compose.yml, el cual nos servirá para crear y levantar los contenedores a la vez cuando ejecutemos un script, que también incluimos dentro de la carpeta del proyecto.
 El fichero .env es un archivo oculto que contiene los valores de las variables del docker compose que no queremos que se muestren a simple vista, como la dirección IP o la contraseña.
+
+
 <img width="292" height="79" alt="image" src="https://github.com/user-attachments/assets/e9ca2296-1d8e-404e-8928-97bddb479dcc" />
+
 
 #### Incidencias
 Al crear la máquina virtual para los contenedores, utilizamos una IP 192.168.135.51, la cual era muy baja, por lo que a los pocos días de estar trabajando con ella nos dio errores de conexión. Lo solucionamos sencillamente cambiando la IP estática de la máquina virtual a un número más alto para evitar superposiciones de IP con los equipos del aula.
@@ -274,7 +281,8 @@ Utilizaremos pf-sense como firewall para nuestra red interna.
 ### Copias de seguridad
 Haremos las copias de seguridad de nuestro proyecto en un disco duro portátil que nos ha prestado Alina.
 
-<img width="1280" height="1013" alt="image" src="https://github.com/user-attachments/assets/9fada486-eec1-4d7c-8b8e-f33d9958cfbf" />
+<img width="1280" height="969" alt="image" src="https://github.com/user-attachments/assets/ec71741f-9b68-4697-8381-d08ee7f7039c" />
+
 
 
 
