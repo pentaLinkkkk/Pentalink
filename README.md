@@ -227,7 +227,7 @@ Hemos esquemado la base de datos de la web teniendo en cuenta cuatro tablas prin
 <summary><h2>Servicios</h2></summary>
 
 ### DNS
-Para el DNS utilizaremos PI-HOLE. Este servicio es especial porque, además de otorgarnos un DNS, protege nuestra red de rastreos en línea.
+Para el DNS utilizaremos PI-HOLE. Este servicio es especial porque, además de otorgarnos un DNS, protege nuestra red de rastreos en línea y bloquea los anuncios.
 
 
 <img width="258" height="380" alt="image" src="https://github.com/user-attachments/assets/dcf641ea-76b5-4cbe-a1eb-f6a58edb2c20" />
