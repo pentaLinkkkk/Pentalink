@@ -272,10 +272,10 @@ Utilizaremos pf-sense como firewall para nuestra red interna.
 
 
 ### Copias de seguridad
-Haremos copias de seguridad de nuestro proyecto con TRUENAS. Lo hemos escogido porque al haber trabajado con él en clase, nos será más sencillo de utilizar.
+Haremos las copias de seguridad de nuestro proyecto en un disco duro portátil que nos ha prestado Alina.
 
 
-<img width="280" height="280" alt="image" src="https://github.com/user-attachments/assets/cfffc3a7-906d-4dad-afab-c454b133b907" />
+[<img width="280" height="280" alt="image" src="https://github.com/user-attachments/assets/cfffc3a7-906d-4dad-afab-c454b133b907" />](https://cdn.pixabay.com/photo/2013/07/13/12/08/hard-159264_1280.png)
 
 
 </details>
