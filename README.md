@@ -230,10 +230,34 @@ Hemos esquemado la base de datos de la web teniendo en cuenta cuatro tablas prin
 Para el DNS utilizaremos PI-HOLE. Este servicio es especial porque, además de otorgarnos un DNS, protege nuestra red de rastreos en línea y bloquea los anuncios.
 
 
+#### ¿Qué es?
+Un DNS es un servicio que se encarga de traducir las direcciones IP a nombres de dominio, y viceversa.
+
+
+#### ¿Por qué es necesario?
+Es necesario ya que facilita la navegacióna web a los usuarios, ya que no será necesario memorizar las largas cadenas de números que conforman una dirección IP para acceder a las páginas web.
+
+
+#### ¿Dónde hay información oficial?
+En [https://pi-hole.net/ ](https://docs.pi-hole.net/) podemos obtener la documentación oficial de Pi-Hole.
+
+
+#### Instalación
+Nosotros utilizaremos Pi-Hole dentro de un contenedor Docker, por lo que el despliegue de nuestros servidores será diferente a que si usáramos servidores alojados en máquinas virtuales.
+
+En visual studio, nos conectamos por SSH a una máquina virtual con Debian y creamos las carpetas donde alojaremos nuestros servidores.
+<img width="292" height="116" alt="image" src="https://github.com/user-attachments/assets/7cd96331-5406-487c-9f19-f684ce3288f1" />
+Una vez hecho esto, comenzamos a redactar un fichero docker-compose.yml, el cual nos servirá para crear y levantar los contenedores a la vez cuando ejecutemos un script, que también incluimos dentro de la carpeta del proyecto.
+El fichero .env es un archivo oculto que contiene los valores de las variables del docker compose que no queremos que se muestren a simple vista, como la dirección IP o la contraseña.
+<img width="292" height="79" alt="image" src="https://github.com/user-attachments/assets/e9ca2296-1d8e-404e-8928-97bddb479dcc" />
+
+#### Incidencias
+Al crear la máquina virtual para los contenedores, utilizamos una IP 192.168.135.51, la cual era muy baja, por lo que a los pocos días de estar trabajando con ella nos dio errores de conexión. Lo solucionamos sencillamente cambiando la IP estática de la máquina virtual a un número más alto para evitar superposiciones de IP con los equipos del aula.
+
 <img width="258" height="380" alt="image" src="https://github.com/user-attachments/assets/dcf641ea-76b5-4cbe-a1eb-f6a58edb2c20" />
 
 ### DHCP
-El DHCP será brindado por el propio firewall.
+El DHCP será brindado por Pi-Hole.
 
 ### Apache
 Apache nos servirá de servidor web. Nos permite alojar páginas web sencillas y poco dinámicas, por lo que será perfecto para nuestro proyecto.
