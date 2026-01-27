@@ -266,6 +266,12 @@ Al crear la máquina virtual para los contenedores, utilizamos una IP 192.168.13
 ### DHCP
 El DHCP será brindado por Pi-Hole.
 
+### MySQL
+Utilizaremos MySQL para hacer nuestra base de datos.
+
+<img width="2500" height="1563" alt="image" src="https://github.com/user-attachments/assets/5344afbe-e7fb-4c9b-a91d-f5278f713a40" />
+
+
 ### Apache
 Apache nos servirá de servidor web. Nos permite alojar páginas web sencillas y poco dinámicas, por lo que será perfecto para nuestro proyecto.
 
