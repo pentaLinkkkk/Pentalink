@@ -269,8 +269,7 @@ El DHCP será brindado por Pi-Hole.
 ### MySQL
 Utilizaremos MySQL para hacer nuestra base de datos.
 
-<img width="744" height="1052" alt="mysql" src="https://github.com/user-attachments/assets/e35ba851-afca-487c-8bfb-bf66a8f7555d" />
-
+<img width="auto" height="500" alt="image" src="https://github.com/user-attachments/assets/ebf9613b-cd80-4240-a071-c77ad01f8112" />
 
 
 ### Apache
