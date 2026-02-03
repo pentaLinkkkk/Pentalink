@@ -226,12 +226,21 @@ Hemos esquemado la base de datos de la web teniendo en cuenta cuatro tablas prin
 <details>
 <summary><h2>Servicios</h2></summary>
 
+Para ejecutar los servidores, hemos decidido utilizar contenedores de Docker. Esto nos permitirá alojar todos los servicios en una sola máquina virtual, ahorrando recursos y espacio en el sistema.
+
+La máquina virtual escogida para alojar los contenedores es un Debian 13, famoso por su estabilidad y fiabilidad. Los recursos de la VM son:
+- 4096 MB de memoria RAM
+- Un disco duro virtual de 2TB
+- 8 procesadores
+
+A continuación, tenemos los servicios que hemos utilizado para el proyecto.
+
 ### DNS
 Para el DNS utilizaremos PI-HOLE. Este servicio es especial porque, además de otorgarnos un DNS, protege nuestra red de rastreos en línea y bloquea los anuncios.
 
 
 #### ¿Qué es?
-Un DNS es un servicio que se encarga de traducir las direcciones IP a nombres de dominio, y viceversa.
+Un DNS es un servicio que se encarga de traducir las direcciones IP a nombres de dominio, y viceversa. Por norma general, utiliza el puerto de red 53.
 
 
 #### ¿Por qué es necesario?
@@ -257,6 +266,12 @@ El fichero .env es un archivo oculto que contiene los valores de las variables d
 
 <img width="292" height="79" alt="image" src="https://github.com/user-attachments/assets/e9ca2296-1d8e-404e-8928-97bddb479dcc" />
 
+#### Parámetros a configurar
+Zonas DNS:
+IP del servidor:
+
+#### Aspectos de seguridad
+
 
 #### Incidencias
 Al crear la máquina virtual para los contenedores, utilizamos una IP 192.168.135.51, la cual era muy baja, por lo que a los pocos días de estar trabajando con ella nos dio errores de conexión. Lo solucionamos sencillamente cambiando la IP estática de la máquina virtual a un número más alto para evitar superposiciones de IP con los equipos del aula.
@@ -266,11 +281,49 @@ Al crear la máquina virtual para los contenedores, utilizamos una IP 192.168.13
 ### DHCP
 El DHCP será brindado por Pi-Hole.
 
+#### ¿Qué es?
+DHCP (Dynamic Host Configuration Protocol) es un protocolo de red que asigna direcciones IP dinámicamente a todos los host que estén dentro de su red, los más comunes siendo ordenadores y teléfonos móviles. Este protocolo se asegura de que todos los equipos de la red dispongan de una dirección IP válida.  
+Aparte de la IP, también se asegura de que cada dispositivo se le asigne también un DNS, la máscara de subred y el gateway correspondientes.
+
+
+#### ¿Por qué es necesario?
+Es necesario para evitar el tedio de tener que configurar manualmente las IP de los host que estén dentro de nuestra red.
+
+#### Aspectos de seguridad
+- Un servidor DHCP sólo puede proporcionar un número limitado de direcciones IP, por lo que es vulnerable frente ataques DoS (Denegación de servicio).
+- Si el servidor no cuenta con una buena configuración de seguridad, un atacante podría conectarse a él y brindar direcciones IP fraudulentas a los equipos de la red.
+
+
+#### Parámetros a configurar
+Rango DHCP:
+IP del servidor:
+
 ### MySQL
 Utilizaremos MySQL para hacer nuestra base de datos.
 
 <img width="auto" height="500" alt="image" src="https://github.com/user-attachments/assets/ebf9613b-cd80-4240-a071-c77ad01f8112" />
 
+#### ¿Qué es?
+MySQL es un sistema de gestión de bases de datos relacionales de gran estabilidad y facilidad de uso. Al ser de código abierto, está respaldada por una gran comunidad.
+
+
+#### ¿Por qué es necesario?
+
+
+
+#### ¿Dónde hay información oficial?
+
+
+
+#### Instalación
+
+#### Parámetros a configurar
+
+
+#### Aspectos de seguridad
+
+
+#### Incidencias
 
 ### Apache
 Apache nos servirá de servidor web. Nos permite alojar páginas web sencillas y poco dinámicas, por lo que será perfecto para nuestro proyecto.
@@ -310,6 +363,8 @@ Al no tener aún configurado un servidor para hacer copias de seguridad, perdimo
 https://github.com/ossu/computer-science
 
 https://www.geeksforgeeks.org/python/how-to-use-css-in-python-flask/
+
+https://www.fortinet.com/lat/resources/cyberglossary/dynamic-host-configuration-protocol-dhcp 
 
 ### Documentación sobre MySql
 http://youtube.com/watch?v=AJUJ1f9gFm8
