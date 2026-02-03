@@ -308,28 +308,62 @@ MySQL es un sistema de gestión de bases de datos relacionales de gran estabilid
 
 
 #### ¿Por qué es necesario?
-
+Tener una base de datos es fundamental para el funcionamiento de nuestra página web, ya que necesitamos almacenar la información de los usuarios, las publicaciones, los comentarios...
+MySQL nos permitirá esquemar la DB de forma gráfica y utilizando el lenguaje SQL. Esta versatilidad nos viene genial para trabajar de ambas formas, dependiendo de cual es nuestra necesidad del momento.
 
 
 #### ¿Dónde hay información oficial?
-
+En la página https://dev.mysql.com/doc/ está la documentación oficial de MySQL.
 
 
 #### Instalación
+Desde docker - - - - -  -
+
 
 #### Parámetros a configurar
 
 
 #### Aspectos de seguridad
+Cuando almacenemos información sensible, como por ejemplo, contraseñas, deberemos cifrarla para evitar filtraciones de las cuentas de usuario. 
 
 
 #### Incidencias
+
 
 ### Apache
 Apache nos servirá de servidor web. Nos permite alojar páginas web sencillas y poco dinámicas, por lo que será perfecto para nuestro proyecto.
 
 
 <img width="512" height="195" alt="image" src="https://github.com/user-attachments/assets/25a32c3e-0247-4cb5-9957-3e877093a4f4" />
+
+#### ¿Qué es?
+Apache es un servidor web encargado de atender las solicitudes de los clientes cuando consulten una URL. Escucha las solicitudes que le llegan mediante el protocolo HTTP y se encarga de enviar las respuestas correspondientes a los clientes. 
+Además, Apache es capaz de enviar todo tipo de archivos, como por ejemplo imágenes, PDF u otros ficheros descargables mediante el navegador. Es también capaz de ejecutar código en ciertos lenguajes de programación, siempre y cuando se tengan los complementos necesarios instalados.
+
+
+#### ¿Por qué es necesario?
+Apache es fundamental para alojar todo el HTML, el CSS y el JavaScript de nuestra web, y poder mostrarlo en los navegadores de otros equipos conectados a la red. Sin Apache, sería imposible acceder a la página web desde otros dispositivos.
+
+
+#### ¿Dónde hay información oficial?
+En la página https://httpd.apache.org/docs/ se puede encontrar la documentación oficial de Apache.
+
+
+#### Instalación
+Desde docker - - - - -  -
+
+
+#### Parámetros a configurar
+Debemos configurar una IP estática para el servidor, ya que esta será la IP de la web, que necesitaremos para más adelante configurar la conversión con el DNS.
+Deberemos también asegurarnos de que los ficheros de configuración de apache apuntan a la carpeta en la que tenemos alojada la web (habitualmente en /var/www/html/).
+
+
+#### Aspectos de seguridad
+
+
+
+#### Incidencias
+
 
 
 ### Firewall
@@ -341,7 +375,6 @@ Utilizaremos pf-sense como firewall para nuestra red interna.
 Haremos las copias de seguridad de nuestro proyecto en un disco duro portátil que nos ha prestado Alina.
 
 <img width="1280" height="969" alt="image" src="https://github.com/user-attachments/assets/ec71741f-9b68-4697-8381-d08ee7f7039c" />
-
 
 
 
@@ -366,10 +399,14 @@ https://www.geeksforgeeks.org/python/how-to-use-css-in-python-flask/
 
 https://www.fortinet.com/lat/resources/cyberglossary/dynamic-host-configuration-protocol-dhcp 
 
+https://www.arsys.es/blog/que-es-apache-y-para-que-sirve
+
 ### Documentación sobre MySql
 http://youtube.com/watch?v=AJUJ1f9gFm8
 
 https://www.tutorialesprogramacionya.com/mysqlya/
+
+https://www.oracle.com/es/mysql/what-is-mysql/ 
 
 ### Documentación sobre Docker
 https://www.geeksforgeeks.org/devops/docker-tutorial/ 
