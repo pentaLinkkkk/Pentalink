@@ -372,11 +372,40 @@ Utilizaremos pf-sense como firewall para nuestra red interna.
 
 
 ### Copias de seguridad
-Haremos las copias de seguridad de nuestro proyecto en un disco duro portátil que nos ha prestado Alina.
-
-<img width="1280" height="969" alt="image" src="https://github.com/user-attachments/assets/ec71741f-9b68-4697-8381-d08ee7f7039c" />
+Haremos las copias de seguridad de nuestro proyecto utilizando rsync, con una segunda máquina virtual debian que utilizaremos como servidor de backup.
 
 
+#### ¿Qué es rsync?
+Rsync (abreviatura de Remote Syncronization) es una herramienta disponible en sistemas Unix/Linux que nos permite sincronizar y transferir ficheros y directorios de forma sencilla y rápida. Se suele utilizar comúnmente para migración de datos, sincronización de contenido entre equipos y, en nuestro caso, para hacer copias de seguridad.
+
+
+#### Sintaxis del comando
+Rsync tiene una sintaxis sumamente sencilla, siendo esta:
+
+rsync [parámetros] origen destino
+
+Este comando tiene una gran variedad de parámetros, sin embargo, los más importantes y que nosotros utilizaremos son:
+
+<ul>
+ <li>-a modo archivo, preserva permisos, propietarios, enlaces simbólicos...</li>
+ <li>-v modo verboso, nos permite ver el progreso de la transferencia.</li>
+ <li>-z comprime los archivos antes de mandarlos por la red, ahorrando tiempo y ancho de banda.</li>
+ <li>-e ssh permite que la conexión remota se realice por ssh.</li>
+</ul>
+
+
+#### Ventajas de usar rsync
+
+<b>Sincronización incremental:</b> Gracias a este tipo de sincronización, rsync detectará qué parte de los archivos ha cambiado, haciendo que solo se transmitan los fragmentos diferentes en lugar de el fichero completo.
+
+<b>Transferencia eficiente:</b> Se puede utilizar el comando para copiar y sincronizar archivos dentro del mismo equipo, entre equipos y/o servidores conectados dentro de redes locales o incluso públicas. Gracias al uso del protocolo SSH, nos aseguramos de que las transferencias son seguras y privadas.
+
+<b>Preservación de permisos:</b> Una de sus grandes ventajas es la preservación de los permisos de los distintos archivos y directorios.
+
+<b>Verificación y seguridad de los datos:</b> Rsync verifica la integridad de los archivos mediante un checksum, lo cual se asegura de que los ficheros que hemos transferido por la red no se hayan corrompido.
+
+
+<img width="640" height="335" alt="image" src="https://github.com/user-attachments/assets/576f361a-70d9-44b5-873e-ca3d5fbeceff" />
 
 </details>
 <details>
