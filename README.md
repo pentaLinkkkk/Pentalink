@@ -398,13 +398,13 @@ Este comando tiene una gran variedad de espacios de nombres, sin embargo, los m�
 
 #### Ventajas de usar rsync
 
-<b>Sincronización incremental:</b> Gracias a este tipo de sincronización, rsync detectará qué parte de los archivos ha cambiado, haciendo que solo se transmitan los fragmentos diferentes en lugar de el fichero completo.
+<b>Protección de datos superior con ZFS:</b> La principal ventaja de TrueNAS es su uso de OpenZFS. Es un gestor de volúmenes y un sistema de archivos integrado que ofrece una protección de datos inigualable.
 
-<b>Transferencia eficiente:</b> Se puede utilizar el comando para copiar y sincronizar archivos dentro del mismo equipo, entre equipos y/o servidores conectados dentro de redes locales o incluso públicas. Gracias al uso del protocolo SSH, nos aseguramos de que las transferencias son seguras y privadas.
+<b>Flexibilidad y Ecosistema de Aplicaciones:</b> TrueNAS brinda de dos versiones gratuitas: CORE y SCALE. Con la versión CORE, basado en FreeBSD, te asegura una alta estabilidad, mientras que la versión SCALE, basado en Linux, ejecuta aplicaciones junto a donde se almacenan tus datos, simplificando la infraestructura.
 
-<b>Preservación de permisos:</b> Una de sus grandes ventajas es la preservación de los permisos de los distintos archivos y directorios.
+<b>Gestión Centralizada y Escalabilidad:</b> Proporciona una interfaz web muy completa, gestiona múltiples sistemas y es ampliable hasta a niveles empresariales, pudiendo manejar petabytes de datos.
 
-<b>Verificación y seguridad de los datos:</b> Rsync verifica la integridad de los archivos mediante un checksum, lo cual se asegura de que los ficheros que hemos transferido por la red no se hayan corrompido.
+<b>Soporte muli-protocolo:</b> TrueNAS puede compartir archivos y bloques usando prácticamente cualquier protocolo existente (SMB, NFS, FTP...). Esto lo hace increíblemente versátil en cualquier red.
 
 
 <img width="640" height="335" alt="image" src="https://github.com/user-attachments/assets/576f361a-70d9-44b5-873e-ca3d5fbeceff" />
