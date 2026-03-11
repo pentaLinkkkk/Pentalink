@@ -372,25 +372,27 @@ Utilizaremos pf-sense como firewall para nuestra red interna.
 
 
 ### Copias de seguridad
-Haremos las copias de seguridad de nuestro proyecto utilizando rsync, con una segunda máquina virtual debian que utilizaremos como servidor de backup.
+En un principio hemos pensado en hacer las copias de seguridad de nuestro proyecto utilizando rsync, pero al final nos hemos decantado por usar TrueNAS, con una segunda máquina virtual debian que utilizaremos como servidor de backup.
+<img width="1471" height="247" alt="image" src="https://github.com/user-attachments/assets/f77c8a85-b374-496c-8cfd-f34aac19a247" />
 
 
-#### ¿Qué es rsync?
-Rsync (abreviatura de Remote Syncronization) es una herramienta disponible en sistemas Unix/Linux que nos permite sincronizar y transferir ficheros y directorios de forma sencilla y rápida. Se suele utilizar comúnmente para migración de datos, sincronización de contenido entre equipos y, en nuestro caso, para hacer copias de seguridad.
+#### ¿Qué es TrueNAS?
+Es un sistema operativo, basado en FreeBSD, que proporciona servicios de almacenamiento en red. Te permite transformar un ordenador en un servidor NAS (almacenamiento conectado a la red).
 
 
 #### Sintaxis del comando
-Rsync tiene una sintaxis sumamente sencilla, siendo esta:
+TrueNAS se basa en una estructura de espacios de nombres (namespace), que se vería así:
 
-rsync [parámetros] origen destino
+namespace [child-namespace] comando [propiedad=valor] [flags]
 
-Este comando tiene una gran variedad de parámetros, sin embargo, los más importantes y que nosotros utilizaremos son:
+Este comando tiene una gran variedad de espacios de nombres, sin embargo, los más importantes y que nosotros utilizaremos son:
 
 <ul>
- <li>-a modo archivo, preserva permisos, propietarios, enlaces simbólicos...</li>
- <li>-v modo verboso, nos permite ver el progreso de la transferencia.</li>
- <li>-z comprime los archivos antes de mandarlos por la red, ahorrando tiempo y ancho de banda.</li>
- <li>-e ssh permite que la conexión remota se realice por ssh.</li>
+ <li>'account' da acceso a los espacios de nombres y comandos relacionados con los usuarios y grupos.</li>
+ <li>'auth' da acceso a los comandos de autenticación, como 'api_key' o 'two_factor'.</li>
+ <li>'directory_service' da acceso a los servicios de directorio, como 'activedirectory o 'ldap'.</li>
+ <li>'network' da acceso a las configuraciones de red, como 'ftp' o 'ssh'.</li>
+ <li>'task' da acceso a los comandos de tareas, como 'cloud_sync' o 'replication'.</li>
 </ul>
 
 
