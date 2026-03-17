@@ -396,7 +396,7 @@ Este comando tiene una gran variedad de espacios de nombres, sin embargo, los m�
 </ul>
 
 
-#### Ventajas de usar rsync
+#### Ventajas de usar TrueNAS
 
 <b>Protección de datos superior con ZFS:</b> La principal ventaja de TrueNAS es su uso de OpenZFS. Es un gestor de volúmenes y un sistema de archivos integrado que ofrece una protección de datos inigualable.
 
@@ -407,7 +407,8 @@ Este comando tiene una gran variedad de espacios de nombres, sin embargo, los m�
 <b>Soporte muli-protocolo:</b> TrueNAS puede compartir archivos y bloques usando prácticamente cualquier protocolo existente (SMB, NFS, FTP...). Esto lo hace increíblemente versátil en cualquier red.
 
 
-<img width="640" height="335" alt="image" src="https://github.com/user-attachments/assets/576f361a-70d9-44b5-873e-ca3d5fbeceff" />
+<img width="1066" height="600" alt="image" src="https://github.com/user-attachments/assets/9cf2da80-1e13-4bc0-ad59-c1417f0be397" />
+
 
 </details>
 <details>
