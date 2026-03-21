@@ -406,6 +406,14 @@ Este comando tiene una gran variedad de espacios de nombres, sin embargo, los m�
 
 <b>Soporte muli-protocolo:</b> TrueNAS puede compartir archivos y bloques usando prácticamente cualquier protocolo existente (SMB, NFS, FTP...). Esto lo hace increíblemente versátil en cualquier red.
 
+#### ¿Cómo lo hemos implementado?
+Nuestras copias de seguridad las hemos hecho mediante una tarea Rsync dentro del propio TrueNAS, asignando copias automáticas cada martes, miércoles y viernes a las 10:50 (los días en los que trabajamos en el proyecto).
+Los archivos que copiamos son:
+<ul>
+ <li>Fichero docker-compose.yml</li>
+ <li>Carpeta con todos los archivos de la web</li>
+</ul>
+Gracias a docker-compose.yml, podemos volver a desplegar todos los servicios con un simple comando, lo que nos facilita mucho la tarea de restauración en caso de que haya problemas con el sistema o la máquina virtual.
 
 <img width="1066" height="600" alt="image" src="https://github.com/user-attachments/assets/9cf2da80-1e13-4bc0-ad59-c1417f0be397" />
 
