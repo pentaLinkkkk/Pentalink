@@ -416,8 +416,46 @@ Los archivos que copiamos son:
 Gracias a docker-compose.yml, podemos volver a desplegar todos los servicios con un simple comando, lo que nos facilita mucho la tarea de restauración en caso de que haya problemas con el sistema o la máquina virtual.
 
 <img width="1066" height="600" alt="image" src="https://github.com/user-attachments/assets/9cf2da80-1e13-4bc0-ad59-c1417f0be397" />
+</details>
+<details>
+ <summary><h2>Plan de contingencia</h2></summary>
+ 
+ #### 1. Datos generales
+ <b>Nombre del proyecto: </b>PentaLink
+ <b>Alumnos: </b>Oscar Jansana, Aleksei Zagrebelnii y Paula Simó
+ <b>Fecha: </b>
+ <b>Versión del documento: </b>
+ <b>Descripción breve del sistema:</b>
 
+ #### 2. Objetivo del plan
 
+ #### 3. Alcance
+
+ #### 4. Identificación de activos
+
+ #### 5. Análisis de riesgos
+
+ #### 6. Escenarios de contingencia
+
+ #### 7. Plan de respuesta
+
+ #### 8. Plan de recuperación
+
+ #### 9. Copias de seguridad
+
+ #### 10. Medidas preventivas
+
+ #### 11. Responsables
+
+ #### 12. Plan de comunicación
+
+ #### 13. Pruebas del plan
+
+ #### 14. Mantenimiento del plan
+
+ #### 15. Mejoras futuras
+
+ #### 16. Conclusiones
 </details>
 <details>
 <summary><h2>Incidencias</h2></summary>
