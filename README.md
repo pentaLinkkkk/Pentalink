@@ -2,7 +2,7 @@
 
 ## índice
   * [Introducción](#introducción)
-  * [Materiales necesarios (Hardware y software)](#Materiales-necesarios-(Hardware-y-software))
+  * [Materiales necesarios (Hardware y software)](#materiales-necesarios-hardware-y-software)
   * [Red](#red)
   * [Web](#web)
   * [Servicios](#servicios)
