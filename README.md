@@ -7,7 +7,7 @@
   * [Web](#web)
   * [Servicios](#servicios)
   * [Plan de contingencia](#plan-de-contingencia)
-  * [Incidencias](#incidencias)
+  * [Las incidencias](#las-incidencias)
   * [Conclusiones](#conclusiones)
   * [Bibliografía](#bibliografía)
 
@@ -461,7 +461,7 @@ Gracias a docker-compose.yml, podemos volver a desplegar todos los servicios con
  #### 16. Conclusiones
 </details>
 <details>
-<summary><h2>Incidencias</h2></summary>
+<summary><h2>Las incidencias</h2></summary>
 
 #### Incidencia 1 - Backup
 Al no tener aún configurado un servidor para hacer copias de seguridad, perdimos parte del trabajo hecho el día 26 de Noviembre de 2025. Hubo un error al mover los ficheros de trabajo de la unidad C: del PC de clase al disco duro personal, por lo que se borró el progreso que habíamos hecho ese día. Por suerte, era poco y se pudo volver a hacer durante el fin de semana en casa.
