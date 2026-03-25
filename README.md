@@ -6,6 +6,7 @@
   * [Red](#red)
   * [Web](#web)
   * [Servicios](#servicios)
+  * [Plan de contingencia](#plan-de-contingencia)
   * [Incidencias](#incidencias)
   * [Conclusiones](#conclusiones)
   * [Bibliografía](#bibliografia)
@@ -22,9 +23,9 @@ Somos un grupo de estudiantes de IFP Innovación en formación profesional Hospi
 <br><li>Oscar Jansana:<br>
 Considero que parto de un conocimiento bastante básico por no decir nulo sobre la programación y el desarrollo web, a pesar de ello, se puede decir que tengo una buena base para el diseño. Si bien es cierto que esta base del diseño no es aplicable a las páginas web, estoy muy intrigado y con ganas de aprender sobre el tema, para poder aplicar los conocimientos de diseño y aprender sobre programación y desarrollo web.<br>
 <br><li>Paula Simó:<br>
-Considero que parto de un conocimiento básico o intermedio sobre la programación, bases de datos y desarrollo web, ya que, anteriormente he creado diversos programas, aplicaciones y webs, pero bastante básicos. Considero que, gracias al conocimiento y entendimiento de las bases nos resultará algo más facil empezar el proyecto, ya que no partiremos de algo nulo, más bien, sabremos más o menos cómo guiarnos. Aparte, tengo muchísimas ganas de trabajar en este proeycto para saber hasta que punto podemos llegar trabajando en esto, aparte, me entusiasma la idea de que otros usuarios puedan llegar a usar este portal web.<br>
+Tengo un conocimiento básico o intermedio sobre la programación, bases de datos y desarrollo web, ya que, anteriormente he creado diversos programas, aplicaciones y webs, pero bastante básicos. Considero que, gracias al conocimiento y entendimiento de las bases nos resultará algo más facil empezar el proyecto, ya que no partiremos de algo nulo, más bien, sabremos más o menos cómo guiarnos. Aparte, tengo muchísimas ganas de trabajar en este proeycto para saber hasta que punto podemos llegar trabajando en esto, aparte, me entusiasma la idea de que otros usuarios puedan llegar a usar este portal web.<br>
 <br><li>Aleksei Zagrebelnii:<br>
-Considero que parto de un conocimiento básico sobre el desarrollo web, ya que tengo ciertos conocimientos en HTML y CSS que he podido aplicar en mi sitio web personal llamado <a href="https://spectron24.neocities.org/">"El diario de Spectron"</a>. Aparte, también cuento con un poco de conocimiento sobre el diseño gráfico de imágenes, lo cual nos puede llegar a ser útil para poder presentar nuestro producto final. También estoy muy interesado y emocionado por trabajar en este proyecto, ya que desde hace años he querido crear un sitio web que otra gente pueda usar y disfrutar. <br>
+Por lo que he llegado a hacer hasta ahora, tengo una experiencia básica sobre el desarrollo web, ya que tengo ciertos conocimientos en HTML y CSS que he podido aplicar en mi sitio web personal llamado <a href="https://spectron24.neocities.org/">"El diario de Spectron"</a>. Aparte, también cuento con un poco de conocimiento sobre el diseño gráfico de imágenes, lo cual nos puede llegar a ser útil para poder presentar nuestro producto final. También estoy muy interesado y emocionado por trabajar en este proyecto, ya que desde hace años he querido crear un sitio web que otra gente pueda usar y disfrutar. <br>
 
 </ul>
 
