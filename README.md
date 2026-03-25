@@ -422,10 +422,10 @@ Gracias a docker-compose.yml, podemos volver a desplegar todos los servicios con
  
  #### 1. Datos generales
  <li><b>Nombre del proyecto: </b>PentaLink
- <li></li><b>Alumnos: </b>Oscar Jansana, Aleksei Zagrebelnii y Paula Simó
- <li></li><b>Fecha: </b>
- <li></li><b>Versión del documento: </b>1.0
- <li></li><b>Descripción breve del sistema:</b>
+ <li><b>Alumnos: </b>Oscar Jansana, Aleksei Zagrebelnii y Paula Simó
+ <li><b>Fecha: </b>
+ <li><b>Versión del documento: </b>1.0
+ <li><b>Descripción breve del sistema:</b>
 
  #### 2. Objetivo del plan
 
