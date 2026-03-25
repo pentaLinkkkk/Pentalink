@@ -1,15 +1,15 @@
 ![Pentalink Promo 1](https://github.com/user-attachments/assets/f0505b83-3a4f-4e2e-bdea-88b68a445d56)
 
 ## índice
-  * [Introducción](#introduccion)
-  * [Materiales necesarios](#materiales-necesarios-(hardware-y-software))
+  * [Introducción](#introducción)
+  * [Materiales necesarios (Hardware y software)](#Materiales-necesarios-(Hardware-y-software))
   * [Red](#red)
   * [Web](#web)
   * [Servicios](#servicios)
   * [Plan de contingencia](#plan-de-contingencia)
   * [Incidencias](#incidencias)
   * [Conclusiones](#conclusiones)
-  * [Bibliografía](#bibliografia)
+  * [Bibliografía](#bibliografía)
 
 <details>
 <summary><h2>Introducción</h2></summary>
