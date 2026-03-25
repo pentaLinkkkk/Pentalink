@@ -462,8 +462,13 @@ Gracias a docker-compose.yml, podemos volver a desplegar todos los servicios con
 <details>
 <summary><h2>Incidencias</h2></summary>
 
-#### Incidencia 1 - backup
-Al no tener aún configurado un servidor para hacer copias de seguridad, perdimos parte del trabajo hecho el día 26 de noviembre. Hubo un error al mover los ficheros de trabajo de la unidad C: del PC de clase al disco duro personal, por lo que se borró el progreso que habíamos hecho ese día. Por suerte, era poco y se pudo volver a hacer durante el fin de semana en casa.
+#### Incidencia 1 - Backup
+Al no tener aún configurado un servidor para hacer copias de seguridad, perdimos parte del trabajo hecho el día 26 de Noviembre de 2025. Hubo un error al mover los ficheros de trabajo de la unidad C: del PC de clase al disco duro personal, por lo que se borró el progreso que habíamos hecho ese día. Por suerte, era poco y se pudo volver a hacer durante el fin de semana en casa.
+
+#### Incidencia 2 - Transferencia del docker
+Hasta el 18 de Marzo, todo los archivos del proyecto estaban en el PC de uno de los integrantes, el cual su asistencia presencial es menos frecuente de lo habitual. Esto ha provocado que los otros dos integrantes del grupo dependieran de utilizar el PC del integrante cuando este no estaba, lo cual hacía que el trabajo fuese más incómodo y estando forzados a utilizar 3 equipos en vez de 2. 
+
+Por lo tanto, hemos decidido crear las máquinas virtuales desde 0 en el PC de uno de los otros dos integrantes y seguidamente transferir todos los archivos del proyecto, así pudiendo trabajar de forma más eficaz y sin necesidad de utilizar otro equipo más de forma innecesaria.
 
 </details>
 <details>
