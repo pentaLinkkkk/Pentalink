@@ -421,11 +421,13 @@ Gracias a docker-compose.yml, podemos volver a desplegar todos los servicios con
  <summary><h2>Plan de contingencia</h2></summary>
  
  #### 1. Datos generales
- <br><li><b>Nombre del proyecto: </b>PentaLink
- <br><li><b>Alumnos: </b>Oscar Jansana, Aleksei Zagrebelnii y Paula Simó
- <br><li><b>Fecha: </b>
- <br><li><b>Versión del documento: </b>1.0
- <br><li><b>Descripción breve del sistema:</b>
+ <ul>
+  <li><b>Nombre del proyecto: </b>PentaLink
+  <li><b>Alumnos: </b>Oscar Jansana, Aleksei Zagrebelnii y Paula Simó
+  <li><b>Fecha: </b>
+  <li><b>Versión del documento: </b>1.0
+  <li><b>Descripción breve del sistema:</b>
+ </ul>
 
  #### 2. Objetivo del plan
 
