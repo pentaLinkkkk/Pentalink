@@ -258,7 +258,7 @@ Para este proyecto hemos decidido tener una máquina virtual como servidor princ
 
 <br>Hemos mencionado el software de TrueNAS y os preguntarés qué es, bien, pues TrueNAS es un sistema operativo (como hemos mencionado anteriormente) que hace que cualquier ordenador (o en nuestro caso, la máquina virtual) se transforme en un servidor de archivos seguro y potente.
 
-<br>Por otro lado, la máquina virtual restante utilizará un sistema operatvio Debian 13 junto con Docker, esto nos ayudará a tenerlo todo unificado ahorrando los recursos y espacio del sistema, donde los recursos de dicha máquina son los siguientes:
+Por otro lado, la máquina virtual restante utilizará un sistema operatvio Debian 13 junto con Docker, esto nos ayudará a tenerlo todo unificado ahorrando los recursos y espacio del sistema, donde los recursos de dicha máquina son los siguientes:
 
 - 4096 MB de memoria RAM
 - Un disco duro virtual de 2TB
@@ -296,7 +296,11 @@ En nuestro caso para el servicio de DNS utilizaremos Pi-hole, que es un sistema 
 El DHCP es un protocolo de red que se encarga de asignar automáticamente direcciones IP, máscara de subred, puerta de enlace y servidor DNS a los dispositivos que se conectan a una red. Para que sea mas fácil de entender, el DHCP lee que hay un dispositivo intentando conectarse a una red y entonces le dice: "tú utilizarás esta dirección IP, esta puerta de enlace y este DNS" sin necesidad de configurarlo nosotros manualmente en cada dispositivo.
 
 #### ¿Por qué es necesario?
-En nuestro caso, es necesario que implementemos el servicio de DHCP ya que los dispositivos se conectarán a nuestra red, por lo que deberemos asignarles una dirección IP válida para poder comunicarse con nuestros servicios. Por si fuera poco, también puede encargarse de ser el punto central para toda nuestra red, de esta forma aseguraremos que las direcciones IP no se dupliquen y que todos los dispositivos tengan la misma configuración correcta para llegar a los contenedores, también de esta forma podremos asignar el servicio de DNS directamente sin necesidad de crear una configuración adicional.
+En nuestro caso, es necesario que implementemos el servicio de DHCP ya que los dispositivos se conectarán a nuestra red, por lo que deberemos asignarles una dirección IP válida para poder comunicarse con nuestros servicios y de esta forma también evitaremos el tedioso proceso de configurar manualmente las direcciones IP de los hosts que estén dentro de nuestra red. Por si fuera poco, también puede encargarse de ser el punto central para toda nuestra red, de esta forma aseguraremos que las direcciones IP no se dupliquen y que todos los dispositivos tengan la misma configuración correcta para llegar a los contenedores, también de esta forma podremos asignar el servicio de DNS directamente sin necesidad de crear una configuración adicional.
+
+#### Aspectos de seguridad
+- Un servidor DHCP sólo puede proporcionar un número limitado de direcciones IP, por lo que es vulnerable frente ataques DoS (Denegación de servicio).
+- Si el servidor no cuenta con una buena configuración de seguridad, un atacante podría conectarse a él y brindar direcciones IP fraudulentas a los equipos de la red.
 
 #### Instalación de Pi-Hole
 Antes de explicar la instalación queremos aclarar que dicha instalación está basada en nuestro proyecto y en cómo lo hemos instalado, dicho esto, explicaremos a continuación su instalación.
@@ -322,22 +326,6 @@ IP del servidor:
 Al crear la máquina virtual para los contenedores, utilizamos una IP 192.168.135.51, la cual era muy baja, por lo que a los pocos días de estar trabajando con ella nos dio errores de conexión. Lo solucionamos sencillamente cambiando la IP estática de la máquina virtual a un número más alto para evitar superposiciones de IP con los equipos del aula.
 
 <img width="258" height="380" alt="image" src="https://github.com/user-attachments/assets/dcf641ea-76b5-4cbe-a1eb-f6a58edb2c20" />
-
-### DHCP
-El DHCP será brindado por Pi-Hole.
-
-#### ¿Qué es?
-DHCP (Dynamic Host Configuration Protocol) es un protocolo de red que asigna direcciones IP dinámicamente a todos los host que estén dentro de su red, los más comunes siendo ordenadores y teléfonos móviles. Este protocolo se asegura de que todos los equipos de la red dispongan de una dirección IP válida.  
-Aparte de la IP, también se asegura de que cada dispositivo se le asigne también un DNS, la máscara de subred y el gateway correspondientes.
-
-
-#### ¿Por qué es necesario?
-Es necesario para evitar el tedio de tener que configurar manualmente las IP de los host que estén dentro de nuestra red.
-
-#### Aspectos de seguridad
-- Un servidor DHCP sólo puede proporcionar un número limitado de direcciones IP, por lo que es vulnerable frente ataques DoS (Denegación de servicio).
-- Si el servidor no cuenta con una buena configuración de seguridad, un atacante podría conectarse a él y brindar direcciones IP fraudulentas a los equipos de la red.
-
 
 #### Parámetros a configurar
 Rango DHCP:
