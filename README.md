@@ -94,7 +94,7 @@ Para la implementación de la infraestructura del proyecto hemos optado por el u
 
 <br>Para quién no sepa que es Docker vamos a hacer una breve explicación. Docker es una plataforma de código abirto que nos permite empaquetar aplicaciones y dependencias (configuraciones) en contenedores ligeros y portátiles, de esta forma podemos asegurar que el software funcinoe de manera consistente en cualqueir entorno. De esta forma, podremos tener todos los servicos que utilicemos (explicados más adelante) en una misma máquina virtual sin necesidad de crear diversas para llevar a cabo el proyecto.
  
-<br>Para tener conexión y poder levantar todos los servicios que requiere nuestro proyecto tenemos pensado que, en base a la red interna y firewall que tenemos en clase, crear nosotros nuestra propia red privada. Aparte, para poder reforzar la seguridad de la WEB, tenemos pensado implementar cloudflare como capa de protección y optimización del tráfico, de esta forma, podremos tener protección frente ataques y amenazas comunes
+<br>Habiendo aclarado esto, para tener conexión y poder levantar todos los servicios que requiere nuestro proyecto tenemos pensado que, en base a la red interna y firewall que tenemos en clase, crear nosotros nuestra propia red privada. Aparte, para poder reforzar la seguridad de la WEB, tenemos pensado implementar cloudflare como capa de protección y optimización del tráfico, de esta forma, podremos tener protección frente ataques y amenazas comunes
 
 <br>Por otro lado, para el apartado de los videojuegos hemos pensado en poder abarcar la mayor cantidad de lenguajes de programación que hay (es decir, admitirlos todos) para que, de esta forma, los usuarios tengan la libertad absoulta de subir los juegos que quieran. Para ello, diferenciaremos los lenguajes en 2 grupos, los que incluyen la tecnologia compatible y los que no, para los que sean compatibles los ejecutaremos directamente en el navegador y se jugará de forma completamente online con opción a descargar el juego, en caso de no ser compatible, se deberán descargar para poder ser jugados.
 
@@ -210,8 +210,27 @@ Desde este punto central, es decir, el menú principal home los usuarios podrán
 En cambio, para ver el perfil de <strong>otro usuario que no sea el tuyo</strong> se vería como podemos observar en la imagen inferior:<br><br>
 <img width="1366" height="1806" alt="Perfil de otro usuario" src="https://github.com/user-attachments/assets/e8872520-b516-4b2c-8395-756474fe9248" />
 
-<br>Finalmente, hemos ejemplificado cómo se vería la página de visualización de un vídeo, pero, cabe recalcar que sería similar para los 5 tipos de publicaciones, ya que lo que cambiaría sería el tipo de contenido y no la distribución. Así es cómo se vería:<br><br>
+<br>Así se verían las páginas de inicio de sesión y de registro.<br>
+<img width="1366" height="1205" alt="Inicio de sesión" src="https://github.com/user-attachments/assets/0a90fbfe-fa74-4329-94a7-f02edc8a40aa" />
+<br>
+<img width="1366" height="1248" alt="Registro" src="https://github.com/user-attachments/assets/76133ba5-7ef0-4b53-b78f-5c6f8bf7cd22" />
+
+<br>Finalmente, hemos ejemplificado cómo se vería la página de visualización de cada sección (o tipo de contenido). Así es cómo se vería cada uno:<br>
+<b>Vídeo</b>
 <img width="1366" height="1265" alt="Página de visualización (vídeo)" src="https://github.com/user-attachments/assets/3f68a2ad-3292-4f9a-a035-9313fc58af95" />
+<br>
+<b>Canción</b>
+<img width="1366" height="1265" alt="Página de visualización (música)" src="https://github.com/user-attachments/assets/adc81c2e-b532-4b6e-8f8a-e3a01ffb5e6a" />
+<br>
+<p><b>Foto/Dibujo</b> (con una demostración de como se verían los comentarios)</p>
+<img width="1366" height="1695" alt="Página de visualización (imagen)" src="https://github.com/user-attachments/assets/cb0ce33e-6fda-4345-89fd-ef1c80c6a98b" />
+<br>
+<b>Juego</b>
+<img width="1366" height="1806" alt="Página de visualización (juego)" src="https://github.com/user-attachments/assets/04810d00-c3f8-466f-b3f2-f861d0958472" />
+<br>
+<b>Blog</b>
+<img width="1366" height="1265" alt="Página de visualización (blog)" src="https://github.com/user-attachments/assets/6bbc7939-e55a-4b09-81ae-08d80323c978" />
+<br><br>
 
 <br><br>
 
@@ -245,11 +264,9 @@ Para este proyecto hemos decidido tener una máquina virtual como servidor princ
 - Un disco duro virtual de 2TB
 - 8 procesadores
 
-A continuación, tenemos los servicios que hemos utilizado para el proyecto.
+Una vez explicadas las máquinas que utilizaremos y para qué las usaremos, vamos a detallar los servicios que aplicar en este proyecto.
 
-### DNS
-Para el servicio de DNS utilizaremos PI-HOLE, ya que este servicio es especial. Esto se debe a que aparte de poder otorgarnos dicho servicio también cuenta con la funcionalidad de proteger nuestra propia red de rastreos en línea y el bloqueo de anuncios.
-
+### SERVICIO DNS
 #### ¿Qué es?
 El servicio de DNS es el que se encarga de traducir las direcciones IP a nombres de dominio y vicebersa, para que nos entendamos, es el que se encarga de dar "la etiqueta" o "el nombre" bajo una dirección IP.
 Un ejemplo para que se entienda fácilmente es Google. Sabemos que para acceder al mismo podemos escribir en el buscador de nuestro navegador "google.com" y acceder directamente a Google, pero esta "es su etiqueta" o nombre, ya que realmente está bajo el dominio (bajo la dirección IP) 8.8.8.8.
@@ -270,22 +287,27 @@ En general, es importante o necesario utilizarlo porque de esta forma facilitamo
 
 <br>Resumidamente, esto nos ayudará a que todo sea mas flexible, mantenible, modificable y con un portal más acccesible y fácil de usar.
 
-#### ¿Dónde hay información oficial?
-En [https://pi-hole.net/ ](https://docs.pi-hole.net/) podemos obtener la documentación oficial de Pi-Hole.
+### ¿Qué utilizaremos com DNS?
+En nuestro caso para el servicio de DNS utilizaremos Pi-hole, que es un sistema de bloqueo de publicidad y rastreadores web, para encontrar documentaión oficial y explicaciones adicionales se puede encontrar en su 
+<a href="https://pi-hole.net/">sitio web oficial</a>.
 
+### SERVICIO DHCP
+#### ¿Qué es?
+El DHCP es un protocolo de red que se encarga de asignar automáticamente direcciones IP, máscara de subred, puerta de enlace y servidor DNS a los dispositivos que se conectan a una red. Para que sea mas fácil de entender, el DHCP lee que hay un dispositivo intentando conectarse a una red y entonces le dice: "tú utilizarás esta dirección IP, esta puerta de enlace y este DNS" sin necesidad de configurarlo nosotros manualmente en cada dispositivo.
 
-#### Instalación
-Nosotros utilizaremos Pi-Hole dentro de un contenedor Docker, por lo que el despliegue de nuestros servidores será diferente a que si usáramos servidores alojados en máquinas virtuales.
+#### ¿Por qué es necesario?
+En nuestro caso, es necesario que implementemos el servicio de DHCP ya que los dispositivos se conectarán a nuestra red, por lo que deberemos asignarles una dirección IP válida para poder comunicarse con nuestros servicios. Por si fuera poco, también puede encargarse de ser el punto central para toda nuestra red, de esta forma aseguraremos que las direcciones IP no se dupliquen y que todos los dispositivos tengan la misma configuración correcta para llegar a los contenedores, también de esta forma podremos asignar el servicio de DNS directamente sin necesidad de crear una configuración adicional.
+
+#### Instalación de Pi-Hole
+Antes de explicar la instalación queremos aclarar que dicha instalación está basada en nuestro proyecto y en cómo lo hemos instalado, dicho esto, explicaremos a continuación su instalación.
+Tal y como se ha comentado anteriormente, en la máquina virutal utilizaremos contenedores de Docker, y uno de ellos, llamado DNS-DHCP será el que tenga el Pi-Hole isntalado, esto hace también que el despliegue de nuestros servidores sea distinto a un despliegue alojado en una máquina virtual directamente.
 
 En visual studio, nos conectamos por SSH a una máquina virtual con Debian y creamos las carpetas donde alojaremos nuestros servidores.
 
-
 <img width="292" height="116" alt="image" src="https://github.com/user-attachments/assets/7cd96331-5406-487c-9f19-f684ce3288f1" />
-
 
 Una vez hecho esto, comenzamos a redactar un fichero docker-compose.yml, el cual nos servirá para crear y levantar los contenedores a la vez cuando ejecutemos un script, que también incluimos dentro de la carpeta del proyecto.
 El fichero .env es un archivo oculto que contiene los valores de las variables del docker compose que no queremos que se muestren a simple vista, como la dirección IP o la contraseña.
-
 
 <img width="292" height="79" alt="image" src="https://github.com/user-attachments/assets/e9ca2296-1d8e-404e-8928-97bddb479dcc" />
 
