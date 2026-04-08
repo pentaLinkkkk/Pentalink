@@ -237,16 +237,28 @@ La máquina virtual escogida para alojar los contenedores es un Debian 13, famos
 A continuación, tenemos los servicios que hemos utilizado para el proyecto.
 
 ### DNS
-Para el DNS utilizaremos PI-HOLE. Este servicio es especial porque, además de otorgarnos un DNS, protege nuestra red de rastreos en línea y bloquea los anuncios.
+Para el servicio de DNS utilizaremos PI-HOLE, ya que este servicio es especial. Esto se debe a que aparte de poder otorgarnos dicho servicio también cuenta con la funcionalidad de proteger nuestra propia red de rastreos en línea y el bloqueo de anuncios.
 
 
 #### ¿Qué es?
-Un DNS es un servicio que se encarga de traducir las direcciones IP a nombres de dominio, y viceversa. Por norma general, utiliza el puerto de red 53.
-
+El servicio de DNS es el que se encarga de traducir las direcciones IP a nombres de dominio y vicebersa, para que nos entendamos, es el que se encarga de dar "la etiqueta" o "el nombre" bajo una dirección IP.
+Un ejemplo para que se entienda fácilmente es Google. Sabemos que para acceder al mismo podemos escribir en el buscador de nuestro navegador "google.com" y acceder directamente a Google, pero esta "es su etiqueta" o nombre, ya que realmente está bajo el dominio (bajo la dirección IP) 8.8.8.8.
+Como norma general, el DNS trabaja con el puerto de red número 53
 
 #### ¿Por qué es necesario?
-Es necesario ya que facilita la navegacióna web a los usuarios, ya que no será necesario memorizar las largas cadenas de números que conforman una dirección IP para acceder a las páginas web.
+En general, es importante o necesario utilizarlo porque de esta forma facilitamos la navegación a los usuarios, ya que, al permitirnos utilizar nombres es mas fácil de recordar que largas cadenas de números (las direcciones IP.)
 
+<br>Nuestro caso no es distinto, es necesario que implementemos el servicio de DNS para que nos sea mas fácil y accesible la web y sus respectivas secciones, aparte, al tener diversos servicios si no lo implementáramos deberíamos acceder con sus respectivos puertos.
+
+<br>La implementación del servicio también nos será útil para evitar el error humano de escribir mal la dirección IP o el puerto de acceso, donde en nuestro caso utilizaremos el DNS en el puerto 8082. Asimismo, sabemos que actualmente tenemos la máquina virtual con una dirección IP estática (192.168.135.240), esto podría "causar un problema futuro" si no dispusiéramos del DNS.
+
+<br>A qué nos referimos con "problema futuro"? Pues si no dispusiéramos del servicio es posible que al cambiar la direción IP se nos olvide cambiarla en todos los servicios y sitios que hacemos referencia con la dirección o bien cometamos algún error en el cambio. Sin embargo, con el servicio activo solo deberemos cambiar la dirección IP en un único registro, el del DNS, de esta forma, todos los servicios seguirán funcionando con los mismos nombres sin necesidad de nuevos cambios. 
+
+<br>No solo nos ofrece estas ventajas, también nos ayuda con el TrueNAS, ya que, de esta forma podremos configurar las copias deseguridad utilizando los nombres y, en el caso que necesitemos restaurar las cosas en una dirección IP distinta estas seguirán funcionando sin la necesidad de reconfigurar algo adicional.
+
+<br>Por otra parte, también nos ayudará a que los contenedores del Docker se cominquen mejor, ya que, de esta forma el docker-compose y la red personalizada puede funcionar directamente con los nombres sin necesidad de poner direcciones IP fijas para cada contenedor específico.
+
+<br>Resumidamente, esto nos ayudará a que todo sea mas flexible, mantenible, modificable y con un portal más acccesible y fácil de usar.
 
 #### ¿Dónde hay información oficial?
 En [https://pi-hole.net/ ](https://docs.pi-hole.net/) podemos obtener la documentación oficial de Pi-Hole.
