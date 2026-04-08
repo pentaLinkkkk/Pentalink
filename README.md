@@ -92,7 +92,7 @@ En esta tabla hemos clasificado las tareas que debemos realizar para completar e
 <summary><h2>Materiales necesarios (Hardware y software)</h2></summary>
 Para la implementación de la infraestructura del proyecto hemos optado por el uso del Docker como parte principal de virtualización y despliegue de servicios, de esta forma, podremos tener en distintos contenedores los servicios de DNS, DHCP y WEB donde tendremos una mayor facilidad de mantenimiento, ya que, de esta forma podremos garantizar un mejor control de los recursos. Aparte de este servidor, implementaremos otro dedicado exclusivamente a las copias de seguridad, de esta forma podremos realizar respaldos automáticos y periódicos de los servicios principales para poder asegurar la disponibilidad y recuperación en caso de fallos o incidentes de seguridad.
  
- <br>Para tener conexión y poder levantar todos los servicios que requiere nuestro proyecto tenemos pensado que, en base a la red interna y firewall que tenemos en clase, crear nosotros nuestra propia red privada. Aparte, para poder reforzar la seguridad de la WEB, tenemos pensado implementar cloudflare como capa de protección y optimización del tráfico, de esta forma, podremos tener protección frente ataques y amenazas comunes
+<br>Para tener conexión y poder levantar todos los servicios que requiere nuestro proyecto tenemos pensado que, en base a la red interna y firewall que tenemos en clase, crear nosotros nuestra propia red privada. Aparte, para poder reforzar la seguridad de la WEB, tenemos pensado implementar cloudflare como capa de protección y optimización del tráfico, de esta forma, podremos tener protección frente ataques y amenazas comunes
 
 <br>Por otro lado, para el apartado de los videojuegos hemos pensado en poder abarcar la mayor cantidad de lenguajes de programación que hay (es decir, admitirlos todos) para que, de esta forma, los usuarios tengan la libertad absoulta de subir los juegos que quieran. Para ello, diferenciaremos los lenguajes en 2 grupos, los que incluyen la tecnologia compatible y los que no, para los que sean compatibles los ejecutaremos directamente en el navegador y se jugará de forma completamente online con opción a descargar el juego, en caso de no ser compatible, se deberán descargar para poder ser jugados.
 
@@ -227,9 +227,18 @@ Hemos esquemado la base de datos de la web teniendo en cuenta cuatro tablas prin
 <details>
 <summary><h2>Servicios</h2></summary>
 
-Para ejecutar los servidores, hemos decidido utilizar contenedores de Docker. Esto nos permitirá alojar todos los servicios en una sola máquina virtual, ahorrando recursos y espacio en el sistema.
+Para este proyecto hemos decidido tener una máquina virtual como servidor principal y como servidor de copias de seguridad será otra máquina virtual que utilizará el softawre de TrueNAS.
 
-La máquina virtual escogida para alojar los contenedores es un Debian 13, famoso por su estabilidad y fiabilidad. Los recursos de la VM son:
+<br>La máquina virtual que se encargará de realizar las copias de seguirdad utilizando el software de TrueNAS utiliza un sistema operativo TrueNAS, basado en un sistema operativo FreeBSD (un sistema operativo de código abierto tipo Unix que ofrece la posibilidad de instalar software y desarrollo unificado de la estructura del sistema de Linux) junto con sus recursos correspondientes, que son los siguientes:
+
+- 4096 MB de RAM
+- 2 discos duros virtuales de 100 GB
+- 2 procesadores
+
+<br>Hemos mencionado el software de TrueNAS y os preguntarés qué es, bien, pues TrueNAS es un sistema operativo (como hemos mencionado anteriormente) que hace que cualquier ordenador (o en nuestro caso, la máquina virtual) se transforme en un servidor de archivos seguro y potente.
+
+<br>Por otro lado, la máquina virtual restante utilizará un sistema operatvio Debian 13 junto con Docker, esto nos ayudará a tenerlo todo unificado ahorrando los recursos y espacio del sistema, donde los recursos de dicha máquina son los siguientes:
+
 - 4096 MB de memoria RAM
 - Un disco duro virtual de 2TB
 - 8 procesadores
@@ -238,7 +247,6 @@ A continuación, tenemos los servicios que hemos utilizado para el proyecto.
 
 ### DNS
 Para el servicio de DNS utilizaremos PI-HOLE, ya que este servicio es especial. Esto se debe a que aparte de poder otorgarnos dicho servicio también cuenta con la funcionalidad de proteger nuestra propia red de rastreos en línea y el bloqueo de anuncios.
-
 
 #### ¿Qué es?
 El servicio de DNS es el que se encarga de traducir las direcciones IP a nombres de dominio y vicebersa, para que nos entendamos, es el que se encarga de dar "la etiqueta" o "el nombre" bajo una dirección IP.
