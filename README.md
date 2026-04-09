@@ -266,10 +266,18 @@ Por otro lado, la máquina virtual restante utilizará un sistema operatvio Debi
 
 Una vez explicadas las máquinas que utilizaremos y para qué las usaremos, vamos a detallar los servicios que aplicar en este proyecto.
 
+### INSTALACIÓN DOCKER
+#### ¿Qué es?
+Tal y como hemos explicado anteriormente docker es una plataforma de código abirto que nos permite empaquetar aplicaciones y dependencias (configuraciones) en contenedores ligeros y portátiles, de esta forma podemos asegurar que el software funcinoe de manera consistente en cualqueir entorno. De esta forma, podremos tener todos los servicos que utilicemos (explicados más adelante) en una misma máquina virtual sin necesidad de crear diversas para llevar a cabo el proyecto.
+#### ¿Por qué es necesario?
+En nuestro proyecto Pentalink, Docker es necesario porque nos permite empaquetar cada servicio (dhs-dhcp, web, database y config) en contenedores independientes pero que corren sobre una misma máquina virtual con IP 192.168.135.240. Esto nos aporta varias ventajas clave: podemos levantar, actualizar o reiniciar un contenedor sin afectar a los demás; el proyecto es portable y se puede desplegar en otro servidor con solo instalar Docker y levantar los mismos contenedores; cada contenedor tiene su propio entorno aislado evitando conflictos de librerías o versiones; y además simplifica mucho el mantenimiento porque no tenemos que instalar y configurar manualmente cada servicio en el sistema operativo Debian 13. Sin Docker, tendríamos que instalar DHCP, servidor web, base de datos y la herramienta de configuración directamente en la MV (máquina virtual), lo que generaría posibles conflictos entre ellos y haría el proyecto más difícil de replicar, respaldar o mover a otra máquina.
+#### Instalación de Docker
+Para poder utilizarlo lo hemos tenido que instalar en la máquina virtual que ejerce de servidor. Para ello, nos hemos conectado via SSH a dicha máquina y hemos escrito el comando: "sudo apt update" para poder mantener el sitema y actualizar los servicios. Para que nos entendamos mejor, es como actualizar el catálogo de una tienda para saber qué productos tiene disponibles y sus versiones más recientes, sin embargo, este no instala ni actualiza ningún programa, solo se actualiza la información.
+
 ### SERVICIO DNS
 #### ¿Qué es?
 El servicio de DNS es el que se encarga de traducir las direcciones IP a nombres de dominio y vicebersa, para que nos entendamos, es el que se encarga de dar "la etiqueta" o "el nombre" bajo una dirección IP.
-Un ejemplo para que se entienda fácilmente es Google. Sabemos que para acceder al mismo podemos escribir en el buscador de nuestro navegador "google.com" y acceder directamente a Google, pero esta "es su etiqueta" o nombre, ya que realmente está bajo el dominio (bajo la dirección IP) 8.8.8.8.
+Un ejemplo para que se entienda fácilmente es Google. Sabemos que para acceder al mismo podemos escribir en el buscador de nuestro navegador "google.com" y acceder directamente a Google, pero esta "es su etiqueta" o nombre, ya que realmente está bajo el dominio (bajo la dirección IP) 8.8.8.8
 Como norma general, el DNS trabaja con el puerto de red número 53
 
 #### ¿Por qué es necesario?
@@ -299,28 +307,21 @@ El DHCP es un protocolo de red que se encarga de asignar automáticamente direcc
 En nuestro caso, es necesario que implementemos el servicio de DHCP ya que los dispositivos se conectarán a nuestra red, por lo que deberemos asignarles una dirección IP válida para poder comunicarse con nuestros servicios y de esta forma también evitaremos el tedioso proceso de configurar manualmente las direcciones IP de los hosts que estén dentro de nuestra red. Por si fuera poco, también puede encargarse de ser el punto central para toda nuestra red, de esta forma aseguraremos que las direcciones IP no se dupliquen y que todos los dispositivos tengan la misma configuración correcta para llegar a los contenedores, también de esta forma podremos asignar el servicio de DNS directamente sin necesidad de crear una configuración adicional.
 
 #### Aspectos de seguridad
-- Un servidor DHCP sólo puede proporcionar un número limitado de direcciones IP, por lo que es vulnerable frente ataques DoS (Denegación de servicio).
-- Si el servidor no cuenta con una buena configuración de seguridad, un atacante podría conectarse a él y brindar direcciones IP fraudulentas a los equipos de la red.
+En nuestro proyecto Pentalink, el DHCP tiene dos riesgos clave: primero, es vulnerable a ataques DoS porque un atacante puede agotar el número limitado de IPs de nuestro servidor dhs-dhcp, dejando a todos nuestros dispositivos sin conexión. Segundo, sin una buena configuración, un atacante puede poner un servidor DHCP falso que entregue IPs fraudulentas a nuestra red, desviando el tráfico de nuestros contenedores y copias de TrueNAS. Para protegernos, usamos DHCP Snooping y por tanto limitamos las solicitudes.
 
 #### Instalación de Pi-Hole
 Antes de explicar la instalación queremos aclarar que dicha instalación está basada en nuestro proyecto y en cómo lo hemos instalado, dicho esto, explicaremos a continuación su instalación.
 Tal y como se ha comentado anteriormente, en la máquina virutal utilizaremos contenedores de Docker, y uno de ellos, llamado DNS-DHCP será el que tenga el Pi-Hole isntalado, esto hace también que el despliegue de nuestros servidores sea distinto a un despliegue alojado en una máquina virtual directamente.
 
-En visual studio, nos conectamos por SSH a una máquina virtual con Debian y creamos las carpetas donde alojaremos nuestros servidores.
+Para la instalación como tal primero nos conectaremos por SSH a la máquina virtual principal (la que cuenta con Debian 13) y crearemos las carpetas donde alojaremos nuestros servidores (cada contenedor de docker).
 
-<img width="292" height="116" alt="image" src="https://github.com/user-attachments/assets/7cd96331-5406-487c-9f19-f684ce3288f1" />
+<img width="292" height="116" alt="image" src="https://github.com/user-attachments/assets/7cd96331-5406-487c-9f19-f684ce3288f1" /> 
 
-Una vez hecho esto, comenzamos a redactar un fichero docker-compose.yml, el cual nos servirá para crear y levantar los contenedores a la vez cuando ejecutemos un script, que también incluimos dentro de la carpeta del proyecto.
-El fichero .env es un archivo oculto que contiene los valores de las variables del docker compose que no queremos que se muestren a simple vista, como la dirección IP o la contraseña.
-
-<img width="292" height="79" alt="image" src="https://github.com/user-attachments/assets/e9ca2296-1d8e-404e-8928-97bddb479dcc" />
+Una vez hecho esto, crearemos el documento dokcer-compose.yml, el cuál nos servirá para poder crear y levantar los contenedores a la vez en cambio de levantar contenedor por contenedor (o servicio por servicio). 
 
 #### Parámetros a configurar
 Zonas DNS:
 IP del servidor:
-
-#### Aspectos de seguridad
-
 
 #### Incidencias
 Al crear la máquina virtual para los contenedores, utilizamos una IP 192.168.135.51, la cual era muy baja, por lo que a los pocos días de estar trabajando con ella nos dio errores de conexión. Lo solucionamos sencillamente cambiando la IP estática de la máquina virtual a un número más alto para evitar superposiciones de IP con los equipos del aula.
