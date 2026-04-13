@@ -268,7 +268,7 @@ Una vez explicadas las máquinas que utilizaremos y para qué las usaremos, vamo
 
 ### INSTALACIÓN DOCKER
 #### ¿Qué es?
-Tal y como hemos explicado anteriormente docker es una plataforma de código abirto que nos permite empaquetar aplicaciones y dependencias (configuraciones) en contenedores ligeros y portátiles, de esta forma podemos asegurar que el software funcinoe de manera consistente en cualqueir entorno. De esta forma, podremos tener todos los servicos que utilicemos (explicados más adelante) en una misma máquina virtual sin necesidad de crear diversas para llevar a cabo el proyecto.
+Tal y como hemos explicado anteriormente, docker es una plataforma de código abirto que nos permite empaquetar aplicaciones y dependencias (configuraciones) en contenedores ligeros y portátiles, de esta forma podemos asegurar que el software funcinoe de manera consistente en cualqueir entorno. De esta forma, podremos tener todos los servicos que utilicemos (explicados más adelante) en una misma máquina virtual sin necesidad de crear diversas para llevar a cabo el proyecto.
 #### ¿Por qué es necesario?
 En nuestro proyecto Pentalink, Docker es necesario porque nos permite empaquetar cada servicio (dhs-dhcp, web, database y config) en contenedores independientes pero que corren sobre una misma máquina virtual con IP 192.168.135.240. Esto nos aporta varias ventajas clave: podemos levantar, actualizar o reiniciar un contenedor sin afectar a los demás; el proyecto es portable y se puede desplegar en otro servidor con solo instalar Docker y levantar los mismos contenedores; cada contenedor tiene su propio entorno aislado evitando conflictos de librerías o versiones; y además simplifica mucho el mantenimiento porque no tenemos que instalar y configurar manualmente cada servicio en el sistema operativo Debian 13. Sin Docker, tendríamos que instalar DHCP, servidor web, base de datos y la herramienta de configuración directamente en la MV (máquina virtual), lo que generaría posibles conflictos entre ellos y haría el proyecto más difícil de replicar, respaldar o mover a otra máquina.
 #### Instalación de Docker
@@ -348,22 +348,16 @@ Al crear la máquina virtual para los contenedores, utilizamos una IP 192.168.13
 Rango DHCP:
 IP del servidor:
 
-### MySQL
-Utilizaremos MySQL para hacer nuestra base de datos.
-
-<img width="auto" height="500" alt="image" src="https://github.com/user-attachments/assets/ebf9613b-cd80-4240-a071-c77ad01f8112" />
-
+###MariaDB
 #### ¿Qué es?
-MySQL es un sistema de gestión de bases de datos relacionales de gran estabilidad y facilidad de uso. Al ser de código abierto, está respaldada por una gran comunidad.
-
+MariaDB es la base de datos que utilizaremos para nuestro proyecto, que, para quién no sepa qué es MariaDB sirve para guardar y organizar toda la información que usa una página web o una aplicación, para que luego pueda recuperarla rápidamente cuando sea necesario.
 
 #### ¿Por qué es necesario?
-Tener una base de datos es fundamental para el funcionamiento de nuestra página web, ya que necesitamos almacenar la información de los usuarios, las publicaciones, los comentarios...
-MySQL nos permitirá esquemar la DB de forma gráfica y utilizando el lenguaje SQL. Esta versatilidad nos viene genial para trabajar de ambas formas, dependiendo de cual es nuestra necesidad del momento.
-
+Para cualquier página web tener una base de datos es algo fundamental para su correcto funcionamiento, ya que, como hemos comentado anteriormente se encarga de almacenar toda la información, donde este nos permite esquemar la base de datos de forma gráfica utilizando el lenguaje SQL
+En nuestro caso, necesitamos MariaDB para guardar todos los datos de nuestro proyecto y de los usuarios. Sin ella, al reiniciar los contenedores se perdería todo. Gracias a MariaDB, el portal puede mostrar la información de cada usuario cuando entra, y ellos pueden iniciar sesión sin tener que volver a introducir o buscar sus datos externamente.
 
 #### ¿Dónde hay información oficial?
-En la página https://dev.mysql.com/doc/ está la documentación oficial de MySQL.
+En la página https://mariadb.org/es/ está la documentación oficial de MariaDB.
 
 
 #### Instalación
