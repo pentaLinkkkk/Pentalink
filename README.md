@@ -451,39 +451,32 @@ En un principio, teníamos previsto utilizar MySQL como sistema gestor de bases 
 
 <br>Esto se debe a que MariaDB es una bifurcación (fork) de MySQL creada por su desarrollador original, garantizando que sea 100% open source y sin dependencias corporativas de Oracle, por lo que hemos instalado MariaDB en su lugar. Lo bueno de haber escogido Debian 13 y MariaDB como servicio es que es totalmente cmopatible con MySQL, por lo que los comandos y consultas funcionan de igual forma y no se requiere ningún cambio como tal.
 
-### Apache
-Apache nos servirá de servidor web. Nos permite alojar páginas web sencillas y poco dinámicas, por lo que será perfecto para nuestro proyecto.
-
-<img width="512" height="195" alt="image" src="https://github.com/user-attachments/assets/25a32c3e-0247-4cb5-9957-3e877093a4f4" />
-
+### Apache y PHP
 #### ¿Qué es?
-Apache es un servidor web encargado de atender las solicitudes de los clientes cuando consulten una URL. Escucha las solicitudes que le llegan mediante el protocolo HTTP y se encarga de enviar las respuestas correspondientes a los clientes. 
-Además, Apache es capaz de enviar todo tipo de archivos, como por ejemplo imágenes, PDF u otros ficheros descargables mediante el navegador. Es también capaz de ejecutar código en ciertos lenguajes de programación, siempre y cuando se tengan los complementos necesarios instalados.
-
+Apache es el servidor web que utilizaremos para nuestro proyecto, y PHP es el lenguaje de programación del lado del servidor que correrá dentro de Apache. Para quien no sepa qué es Apache, sirve para recibir las peticiones de los usuarios cuando acceden a nuestra página web y devolverles las páginas, imágenes o archivos que solicitan. PHP, por su parte, se encarga de generar el contenido dinámico (como mostrar el nombre del usuario logueado, listar publicaciones, procesar formularios, etc.) antes de que Apache envíe la respuesta al navegador.
 
 #### ¿Por qué es necesario?
-Apache es fundamental para alojar todo el HTML, el CSS y el JavaScript de nuestra web, y poder mostrarlo en los navegadores de otros equipos conectados a la red. Sin Apache, sería imposible acceder a la página web desde otros dispositivos.
+Para cualquier página web dinámica tener un servidor web con un lenguaje de backend es algo fundamental para su correcto funcionamiento, ya que, como hemos comentado anteriormente, Apache entrega el contenido visual y PHP se encarga de toda la lógica que no se puede hacer solo con HTML/CSS/JS. En nuestro caso, necesitamos Apache con PHP para alojar la interfaz web de PentaLink y procesar las acciones de los usuarios (registro, login, crear publicaciones, comentarios, etc.) conectándose a la base de datos MariaDB.
 
+<br>Sin Apache y PHP, aunque tuviéramos la base de datos funcionando, nadie podría ver ni usar la página web, y no podríamos generar contenido personalizado para cada usuario. Gracias a Apache con PHP, el portal puede cargar dinámicamente los datos de cada usuario, mostrar sus publicaciones, procesar formularios de forma segura y conectar con MariaDB para guardar o recuperar información.
 
 #### ¿Dónde hay información oficial?
-En la página https://httpd.apache.org/docs/ se puede encontrar la documentación oficial de Apache.
-
+Para encontrar información adicional y documentación oficial de Apache lo podremos encontrar en su <a href=" https://httpd.apache.org/docs/">sitio web oficial</a>, mientras que, para encontrar la misma de PHP es también en su <a href="https://www.php.net/">sitio web oficioal</a>.
 
 #### Instalación
-Desde docker - - - - -  -
+Para instalar Apache y PHP en su respectivo contenedor web, primero debemos acceder a nuestra máquina virtual con la IP 192.168.135.240 mediante SSH (o bien hacerlo desde la misma terminal de la máquina virtual). Una vez dentro, trabajaremos sobre el contenedor web que ya tenemos creado en Docker. Accedemos al contenedor con docker exec -it web /bin/bash.
 
+<br>Dentro del contenedor, lo primero que hacemos es actualizar los repositorios del sistema por si hubiera novedades con el comando apt update. Posteriormente, instalaremos Apache, PHP y el módulo que conecta ambos con su respectivo comando apt install apache2 php libapache2-mod-php php-mysql -y (el paquete php-mysql es necesario para que PHP pueda conectarse a MariaDB). Verificaremos el estado del servicio Apache con service apache2 status, en caso de estar parado, lo iniciaremos con service apache2 start. Comprobaremos que PHP está funcionando creando un archivo info.php de prueba.
 
-#### Parámetros a configurar
-Debemos configurar una IP estática para el servidor, ya que esta será la IP de la web, que necesitaremos para más adelante configurar la conversión con el DNS.
-Deberemos también asegurarnos de que los ficheros de configuración de apache apuntan a la carpeta en la que tenemos alojada la web (habitualmente en /var/www/html/).
-
+<br>Finalmente, saldremos del contenedor con exit y nos aseguraremos de que el contenedor web se inicie automáticamente con Docker.
 
 #### Aspectos de seguridad
 
 
-
 #### Incidencias
+En un principio, teníamos previsto utilizar Nginx con PHP-FPM como servidor web para nuestro proyecto PentaLink. Sin embargo, al estudiar las necesidades del proyecto, comprobamos que Apache con mod_php nos ofrecía una mayor flexibilidad con archivos .htaccess, una configuración más sencilla para proyectos dinámicos con múltiples directorios, y una integración más directa con PHP sin tener que configurar un servicio adicional como PHP-FPM, por lo que hemos instalado Apache + PHP en su lugar.
 
+<br>Lo bueno de haber escogido Apache con PHP es que Apache es el servidor web más utilizado y documentado del mundo, y PHP es el lenguaje de backend más común para proyectos web dinámicos, con una comunidad enorme. Además, su integración con MariaDB es inmediata, estable y perfectamente compatible con la base de datos que ya hemos creado para PentaLink. También nos permite en un futuro migrar fácilmente partes del código a otros frameworks PHP si el proyecto crece.
 
 
 ### Firewall
