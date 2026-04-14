@@ -436,15 +436,15 @@ CREATE DATABASE IF NOT EXISTS pentalink;<br>
 
 #### Aspectos de seguridad
 Es importante que aparte de almacenar la información de los usuarios la cifremos para poder evitar filtraciones de las cuentas de los usuarios o bien, sus datos personales, es por ello que aplicaremos las siguientes medidas:<br>
-<br>· Cifrado de contraseñas en la base de datos. Para ello, cifraremos la contraseña del usuario con SHA-256 o bcrypt y almacenaremos el hash en la base de datos.<br>
+<br>Cifrado de contraseñas en la base de datos. Para ello, cifraremos la contraseña del usuario con SHA-256 o bcrypt y almacenaremos el hash en la base de datos.<br>
 
-<br>· Usuarios con privilegios mínimos. Para ello, contaremos con 3 usuarios, el root que solo podrá ser utilizado para administración, el de pentaLink que solo tendrá los permisos básicos como select, insert, update o delete sobre el usuario de la base de datos y, finalmente, el usuario de la base de datos que será el único con privilegios absolutos.<br>
+<br>Usuarios con privilegios mínimos. Para ello, contaremos con 3 usuarios, el root que solo podrá ser utilizado para administración, el de pentaLink que solo tendrá los permisos básicos como select, insert, update o delete sobre el usuario de la base de datos y, finalmente, el usuario de la base de datos que será el único con privilegios absolutos.<br>
 
-<br>· Restringiremos el acceso por red. Para ello, en el archivo 50-server.cnf utiliazremos las reglas de firewall con ufw para permitir solo las IPs necesarias y a los puertos requeridos.<br>
+<br>Restringiremos el acceso por red. Para ello, en el archivo 50-server.cnf utiliazremos las reglas de firewall con ufw para permitir solo las IPs necesarias y a los puertos requeridos.<br>
 
-<br>· Copias de seguridad con TrueNAS. Gracias a nuestra segunda máquina virtual con TrueNAS podremos hacer las copias de seguridad correspondientes, pero aparte, también nos deberemos asegurar de que el directorio donde MariaDB guarda los datos se incluyan en dichas copas, para, de esta forma, guardar también los datos almacenados en la base de datos, para ello, podemos hacer un volcado periódico con mariadb-dump antes de enviarlo al TrueNAS.<br>
+<br>Copias de seguridad con TrueNAS. Gracias a nuestra segunda máquina virtual con TrueNAS podremos hacer las copias de seguridad correspondientes, pero aparte, también nos deberemos asegurar de que el directorio donde MariaDB guarda los datos se incluyan en dichas copas, para, de esta forma, guardar también los datos almacenados en la base de datos, para ello, podemos hacer un volcado periódico con mariadb-dump antes de enviarlo al TrueNAS.<br>
 
-<br>· Actualizaciones periódicas. Para ello, nos aseguraremos de que el sistema reciba las actualizaciones de los parches de seguridad de MariaDB utilizando los comandos "sudo apt update" y "sudo apt upgrade -y", de esta forma, tendremos MariaDB instalado de forma nativa en la máquina virtual junto con su configuración segura y adaptada a nuestro proyecto.<br>
+<br>Actualizaciones periódicas. Para ello, nos aseguraremos de que el sistema reciba las actualizaciones de los parches de seguridad de MariaDB utilizando los comandos "sudo apt update" y "sudo apt upgrade -y", de esta forma, tendremos MariaDB instalado de forma nativa en la máquina virtual junto con su configuración segura y adaptada a nuestro proyecto.<br>
 
 #### Incidencias
 En un principio, teníamos previsto utilizar MySQL como sistema gestor de bases de datos para nuestro proyecto Pentalink. Sin embargo, al intentar instalarlo en nuestra máquina virtual con Debian 13, comprobamos que esto no era compatible, ya que Debian 13 ha reemplazado oficialmente MySQL por MariaDB como base de datos predeterminada.<br>
@@ -478,11 +478,48 @@ En un principio, teníamos previsto utilizar Nginx con PHP-FPM como servidor web
 
 <br>Lo bueno de haber escogido Apache con PHP es que Apache es el servidor web más utilizado y documentado del mundo, y PHP es el lenguaje de backend más común para proyectos web dinámicos, con una comunidad enorme. Además, su integración con MariaDB es inmediata, estable y perfectamente compatible con la base de datos que ya hemos creado para PentaLink. También nos permite en un futuro migrar fácilmente partes del código a otros frameworks PHP si el proyecto crece.
 
+### Servicio Firewall
+#### ¿Qué es?
+pfSense es el firewall que utilizaremos para nuestro proyecto, que, para quién no sepa qué es pfSense, sirve para controlar todo el tráfico de red que entra y sale de nuestra infraestructura, actuando como un muro de protección que decide qué conexiones están permitidas y cuáles no, además de poder redirigir puertos, hacer balanceo de carga o conectar redes privadas virtuales (VPN).
 
-### Firewall
-Utilizaremos pf-sense como firewall para nuestra red interna.
-![1200px-PfSense_logo](https://github.com/user-attachments/assets/095c9ce9-5561-4643-b509-732c7ea1f424)
+#### ¿Por qué es necesario?
+Para cualquier proyecto que tenga servicios expuestos en red (como un servidor web o una base de datos) tener un firewall es algo fundamental para su correcta seguridad, ya que, como hemos comentado anteriormente, se encarga de filtrar el tráfico y bloquear accesos no autorizados.<br>
 
+En nuestro caso, necesitamos pfSense para proteger las máquinas virtuales de PentaLink (la principal con IP 192.168.135.240 y la de TrueNAS), permitiendo únicamente el tráfico necesario para que la web funcione y bloqueando todo lo demás. Sin pfSense, cualquier equipo de la red (o desde internet si está expuesto) podría intentar acceder a nuestros contenedores, a la base de datos o a las copias de seguridad, poniendo en riesgo toda la información de los usuarios. Gracias a pfSense, el portal web solo será accesible por los puertos que nosotros decidamos (como el 80 y 443 para HTTP/HTTPS), mientras que servicios internos como SSH, MariaDB o la administración de TrueNAS quedarán protegidos y solo accesibles desde redes o IPs autorizadas.
+
+#### ¿Dónde hay información oficial?
+Para encontrar información adicional y documentación oficial de pfSense lo podremos encontrar en su <a href="https://www.pfsense.org/docs/">sitio web oficial</a>.
+
+#### Instalación
+Para instalar pfSense, primero debemos descargar la imagen ISO oficial desde su sitio web y crear una nueva máquina virtual en nuestro hipervisor (puede ser VirtualBox, VMware o Proxmox). Asignaremos a esta máquina virtual al menos 2 GB de RAM, 20 GB de disco y dos interfaces de red: una interfaz WAN (conectada a nuestra red física o a internet) y una interfaz LAN (conectada a la red interna donde estarán nuestras máquinas virtuales de PentaLink y TrueNAS).
+
+<br>Arrancamos desde la ISO y seguimos el asistente de instalación aceptando las opciones por defecto. Una vez instalado, accedemos a la consola de pfSense y asignamos las interfaces (normalmente em0 para WAN y em1 para LAN). Configuramos la IP de la interfaz LAN, por ejemplo 192.168.135.1/24, para que sea la puerta de enlace de nuestra red interna. Luego accedemos a la interfaz web de pfSense desde un navegador usando https://192.168.135.1 con el usuario admin y la contraseña pfsense (que cambiaremos en el primer inicio).
+
+#### Parámetros a configurar
+
+#### Aspectos de seguridad
+Es importante que aparte de filtrar el tráfico protejamos también la propia configuración de pfSense para evitar que alguien pueda modificar las reglas o acceder a la administración, es por ello que aplicaremos las siguientes medidas:<br>
+
+<br>Cambiar la contraseña por defecto del usuario admin. Desde System > User Manager cambiaremos la contraseña predeterminada por una segura.<br>
+
+<br>Acceso a la interfaz web solo desde IPs confiables. En System > Advanced > Admin Access restringiremos el acceso a la web de pfSense únicamente desde nuestra IP de administración o desde la red local específica.<br>
+
+<br>Usar HTTPS con certificado propio en la interfaz web. En System > Advanced > Admin Access habilitaremos HTTPS y generaremos un certificado autofirmado o subiremos uno propio.<br>
+
+<br>Deshabilitar servicios no utilizados. En System > Advanced > Networking desactivaremos servicios como ping (ICMP) hacia la WAN, y en Services deshabilitaremos cualquier servicio que no necesitemos (como DHCP, si ya tenemos otro en la red).<br>
+
+<br>Configurar reglas de limitación de tráfico (limiting). En Firewall > Traffic Shaper podemos crear reglas para limitar conexiones simultáneas por IP, evitando ataques de denegación de servicio (DoS) contra nuestro servidor web.<br>
+
+<br>Activar el sistema de detección de intrusiones (IDS/IPS) con Snort o Suricata. Desde Services > Snort (o Suricata) instalaremos y configuraremos el paquete correspondiente para analizar el tráfico entrante y bloquear patrones de ataque conocidos (SQL injection, XSS, etc.) antes de que lleguen a nuestro servidor web.<br>
+
+<br>Realizar copias de seguridad de la configuración de pfSense. Desde Diagnostics > Backup & Restore descargaremos periódicamente un archivo de respaldo de toda la configuración de pfSense (reglas, NAT, usuarios, etc.) y lo almacenaremos en TrueNAS junto con el resto de copias de seguridad del proyecto.<br>
+
+<br>Actualizaciones periódicas. Para ello, nos aseguraremos de que pfSense reciba las actualizaciones de seguridad utilizando el menú System > Update, aplicando los parches estables recomendados. De esta forma, tendremos pfSense actualizado con su configuración segura y adaptada a nuestro proyecto PentaLink.
+
+#### Incidencias
+En un principio, teníamos previsto utilizar el firewall propio de Linux (iptables o nftables) en la propia máquina virtual de PentaLink para proteger nuestros contenedores. Sin embargo, al analizar la infraestructura completa, comprobamos que pfSense nos ofrecía ventajas como tener un firewall centralizado y dedicado, con interfaz gráfica muy intuitiva, capacidad de hacer NAT y redireccionamiento de puertos sin complicaciones, además de contar con sistemas IDS/IPS integrados y la posibilidad de proteger no solo la máquina principal sino también la máquina TrueNAS y cualquier otra que añadamos en el futuro.
+
+Lo bueno de haber escogido pfSense es que es un firewall de nivel empresarial completamente gratuito y de código abierto, con una comunidad muy activa y documentación extensa. Al estar en una máquina virtual independiente, no consume recursos de nuestra máquina principal de PentaLink y podemos reiniciar o modificar el firewall sin afectar a los contenedores Docker. Además, su integración con redes virtuales es perfecta y nos permite escalar la seguridad fácilmente si el proyecto crece.
 
 ### Copias de seguridad
 En un principio hemos pensado en hacer las copias de seguridad de nuestro proyecto utilizando rsync, pero al final nos hemos decantado por usar TrueNAS, con una segunda máquina virtual debian que utilizaremos como servidor de backup.
