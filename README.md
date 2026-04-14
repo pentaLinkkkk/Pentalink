@@ -471,7 +471,25 @@ Para instalar Apache y PHP en su respectivo contenedor web, primero debemos acce
 <br>Finalmente, saldremos del contenedor con exit y nos aseguraremos de que el contenedor web se inicie automáticamente con Docker.
 
 #### Aspectos de seguridad
+Es importante que aparte de entregar las páginas web y ejecutar PHP protejamos el servidor para evitar accesos no autorizados, inyecciones de código o filtraciones de datos, es por ello que aplicaremos las siguientes medidas:<br>
 
+<br>Ocultar la versión de Apache y PHP. Para ello, editaremos el archivo /etc/apache2/conf-available/security.conf y cambiaremos las directivas ServerTokens Prod y ServerSignature Off. En PHP, editaremos php.ini con expose_php = Off para que no se muestre la versión de PHP en las cabeceras HTTP.<br>
+
+<br>Configurar permisos adecuados en las carpetas. Para ello, aseguraremos que los archivos del proyecto pertenezcan al usuario www-data y que los permisos sean 755 para carpetas y 644 para archivos. Las carpetas de subida de archivos (como uploads/) deberán tener permisos 755 pero asegurándonos de que no se puedan ejecutar scripts PHP desde dentro de ellas.<br>
+
+<br>Deshabilitar funciones peligrosas de PHP. Editaremos php.ini y configuraremos disable_functions = exec, shell_exec, system, passthru, popen, proc_open para evitar que un atacante pueda ejecutar comandos del sistema si logra inyectar código PHP malicioso.<br>
+
+<br>Restringir el acceso por directorios sensibles. Crearemos un archivo .htaccess en la raíz del proyecto o usaremos la configuración del VirtualHost para denegar el acceso a carpetas como .git, backups, config y también a archivos como conexion.php (aunque lo normal es que esté fuera del directorio público).<br>
+
+<br>Proteger contra ataques de inyección SQL y XSS. Usaremos siempre sentencias preparadas (PDO) en PHP para interactuar con MariaDB, nunca concatenaremos consultas SQL. Además, habilitaremos cabeceras de seguridad como X-Content-Type-Options: nosniff y X-Frame-Options: DENY mediante la directiva Header set en Apache (requiere módulo headers habilitado con sudo a2enmod headers).<br>
+
+<br>Limitar el tamaño de las peticiones y subidas. Configuraremos en Apache LimitRequestBody 20971520 (20 MB) y en php.ini ajustaremos upload_max_filesize = 20M y post_max_size = 20M para evitar ataques de denegación de servicio por archivos demasiado grandes.<br>
+
+<br>Usar HTTPS con certificado autofirmado o Let's Encrypt. Instalaremos el módulo SSL con sudo a2enmod ssl y crearemos un certificado autofirmado para pruebas, o bien configuraremos Let's Encrypt si el servidor tiene acceso a internet público, ya que las contraseñas y datos personales de los usuarios deben viajar cifrados.<br>
+
+<br>Copias de seguridad con TrueNAS. Gracias a nuestra segunda máquina virtual con TrueNAS podremos hacer las copias de seguridad correspondientes, pero aparte, también nos deberemos asegurar de que el directorio donde Apache guarda los archivos web (/var/www/pentalink), los archivos de configuración de Apache (/etc/apache2/) y el archivo php.ini se incluyan en dichas copias, para, de esta forma, guardar también la configuración, el contenido web y el código PHP del proyecto.<br>
+
+<br>Actualizaciones periódicas. Para ello, nos aseguraremos de que el sistema reciba las actualizaciones de los parches de seguridad de Apache y PHP utilizando los comandos sudo apt update y sudo apt upgrade -y, de esta forma, tendremos Apache y PHP instalados de forma nativa en la máquina virtual junto con su configuración segura y adaptada a nuestro proyecto.
 
 #### Incidencias
 En un principio, teníamos previsto utilizar Nginx con PHP-FPM como servidor web para nuestro proyecto PentaLink. Sin embargo, al estudiar las necesidades del proyecto, comprobamos que Apache con mod_php nos ofrecía una mayor flexibilidad con archivos .htaccess, una configuración más sencilla para proyectos dinámicos con múltiples directorios, y una integración más directa con PHP sin tener que configurar un servicio adicional como PHP-FPM, por lo que hemos instalado Apache + PHP en su lugar.
@@ -496,6 +514,19 @@ Para instalar pfSense, primero debemos descargar la imagen ISO oficial desde su 
 <br>Arrancamos desde la ISO y seguimos el asistente de instalación aceptando las opciones por defecto. Una vez instalado, accedemos a la consola de pfSense y asignamos las interfaces (normalmente em0 para WAN y em1 para LAN). Configuramos la IP de la interfaz LAN, por ejemplo 192.168.135.1/24, para que sea la puerta de enlace de nuestra red interna. Luego accedemos a la interfaz web de pfSense desde un navegador usando https://192.168.135.1 con el usuario admin y la contraseña pfsense (que cambiaremos en el primer inicio).
 
 #### Parámetros a configurar
+Una vez tenemos pfSense instalado y accesible desde la web, deberemos configurar las reglas de firewall para proteger nuestro proyecto PentaLink. Accedemos a Firewall > Rules y editamos las reglas de la interfaz LAN. Por defecto, pfSense permite todo el tráfico desde LAN hacia WAN, pero nosotros queremos restringir el acceso a las máquinas internas. Crearemos las siguientes reglas:<br>
+
+<br>Permitir HTTP y HTTPS desde cualquier IP hacia el servidor web (192.168.135.240). Para ello, creamos una regla en LAN con protocolo TCP, puerto destino 80 y 443, destino 192.168.135.240.<br>
+
+<br>Permitir SSH solo desde una IP específica (por ejemplo, desde el equipo del administrador). Para ello, creamos una regla con protocolo TCP, puerto destino 22, destino 192.168.135.240, y origen nuestra IP de administración.<br>
+
+<br>Permitir el acceso a TrueNAS solo desde la IP de la máquina principal o desde el administrador. Para ello, creamos una regla con protocolo TCP, puerto destino 443 (o el puerto que use TrueNAS), destino la IP de TrueNAS, y origen restringido.<br>
+
+<br>Bloquear todo el resto del tráfico. Añadimos una regla al final de la lista con acción Block para cualquier protocolo y cualquier destino.<br>
+
+<br>Además, si queremos acceder a la web de PentaLink desde fuera de nuestra red local, configuraremos en Firewall > NAT > Port Forward una regla de redireccionamiento que lleve el tráfico del puerto 80 y 443 de la interfaz WAN hacia la IP 192.168.135.240 de nuestro servidor web.<br>
+
+<br>También es recomendable configurar en System > Advanced > Firewall & NAT la opción Disable reply-to para evitar problemas de enrutamiento asimétrico, y en System > Update mantener actualizado pfSense para recibir los últimos parches de seguridad.
 
 #### Aspectos de seguridad
 Es importante que aparte de filtrar el tráfico protejamos también la propia configuración de pfSense para evitar que alguien pueda modificar las reglas o acceder a la administración, es por ello que aplicaremos las siguientes medidas:<br>
