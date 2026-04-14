@@ -124,7 +124,7 @@ La idea que tenemos pensada para implementar Cloudflare en nuestro portal web se
 
 <details>
 <summary><h2>Red</h2></summary>
-Para el servicio de red, tenemos pensado utilizar el mismo esquema básico que se nos ha mostrado en clase. Es decir, utilizar como red externa la red de clase y, como red interna, nuestra red privada, donde en ella contaremos con cuatro servidores, que son los siguentes:
+Para el servicio de red, tenemos pensado utilizar el mismo esquema básico que se nos ha mostrado en clase. Es decir, emplearemos como red externa la red de clase y, como red interna, nuestra propia red privada. Dentro de esta red privada contaremos con un servidor principal con Debian 13 y docker, donde en cada contenedor tendremos los siguientes servicios, que son los siguientes:
 <ol>
 <li><b>Servidor web</b>
  <br>Este lo usaremos para almacenar los siguientes datos:
@@ -135,7 +135,7 @@ Para el servicio de red, tenemos pensado utilizar el mismo esquema básico que s
  <br>Que será el servidor encargado de almacenar lo siguiente:
  <br>- MariaDB
  <br>- PHPmyadmin
-<li><b>Servidor DNS</b>
+<li><b>Servidor DNS y DHCP</b>
 <li><b>Backup</b>
  <br>Donde queremos almacenar las copias de seguridad de los servicios de nuestro portal, que serían:
  <br>- Apache
