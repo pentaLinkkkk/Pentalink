@@ -611,12 +611,55 @@ Gracias a docker-compose.yml, podemos volver a desplegar todos los servicios con
  </ul>
 
  #### 2. Objetivo del plan
+El objetivo de este plan de contingencia es garantizar que, ante cualquier incidencia que afecte a los servicios de PentaLink, podamos recuperar la operatividad completa en el menor tiempo posible, minimizando la pérdida de datos y el impacto sobre los usuarios del portal. Buscamos tener claras las acciones a realizar para cada escenario de fallo, así como las responsabilidades de cada miembro del grupo.
 
  #### 3. Alcance
+Este plan aplica a todos los componentes del proyecto PentaLink, incluyendo:<br>
+
+<br>Máquina virtual principal con Debian 13 (IP 192.168.135.240)<br>
+
+<br>Contenedores Docker: dns-dhcp, web, database y config<br>
+
+<br>Servidor web Apache y código PHP/HTML/CSS/JS<br>
+
+<br>Base de datos MariaDB<br>
+
+<br>Servidor de backups con TrueNAS<br>
+
+<br>Configuración de red, firewall y DNS<br>
+
+<br>Los archivos subidos por los usuarios (imágenes, música, vídeos, juegos)<br>
+
+<br>No aplica a los equipos locales de los desarrolladores ni a infraestructuras externas a nuestras máquinas virtuales.
 
  #### 4. Identificación de activos
+ Hemos identificado los siguientes activos críticos para PentaLink:
+
+| Activo | Descripción | Impacto si se pierde |
+|--------|-------------|----------------------|
+| Base de datos MariaDB | Contiene usuarios, publicaciones, comentarios y borradores | Muy alto (pérdida de toda la información del portal) |
+| Código fuente (web) | Archivos PHP, HTML, CSS y JS del portal | Alto (pérdida de la lógica y diseño de la web) |
+| Contenedores Docker | `dns-dhcp`, `web`, `database`, `config` | Alto (servicios dejan de funcionar) |
+| Archivos subidos por usuarios | Imágenes, música, vídeos y juegos | Alto (pérdida del contenido multimedia) |
+| Configuración de red y firewall | Reglas de pfSense, configuración de Pi-hole | Medio (posible exposición o mal funcionamiento) |
+| Máquina virtual TrueNAS | Copias de seguridad | Muy alto (sin backups no podemos recuperarnos) |
+| IP estática `192.168.135.240` | Acceso a todos los servicios | Medio (cambiar IP requiere reconfigurar servicios) |
 
  #### 5. Análisis de riesgos
+Hemos analizado los principales riesgos que pueden afectar a PentaLink:
+
+| Riesgo | Probabilidad | Impacto | Nivel |
+|--------|--------------|---------|-------|
+| Fallo del disco duro de la MV principal | Baja | Muy alto | Alto |
+| Error humano al modificar la base de datos | Media | Alto | Alto |
+| Ataque de denegación de servicio (DoS) | Baja | Medio | Medio |
+| Caída del contenedor `database` | Media | Muy alto | Alto |
+| Caída del contenedor `web` | Media | Alto | Alto |
+| Pérdida de conectividad de red | Baja | Alto | Medio |
+| Error en las copias de seguridad de TrueNAS | Baja | Muy alto | Alto |
+| Contraseña olvidada o comprometida | Baja | Medio | Bajo |
+| Actualización que rompe compatibilidad | Baja | Alto | Medio |
+| Incendio o problema físico en el aula | Muy baja | Muy alto | Medio |
 
  #### 6. Escenarios de contingencia
 
@@ -629,6 +672,19 @@ Gracias a docker-compose.yml, podemos volver a desplegar todos los servicios con
  #### 10. Medidas preventivas
 
  #### 11. Responsables
+ Como responsables de cada parte hemos decidido asignarlos de la siguiente manera:
+ | Incidencia | Responsable principal | Responsable secundario |
+|------------|----------------------|------------------------|
+| Caída de contenedor `database` | Paula Simó | Oscar Jansana |
+| Caída de contenedor `web` | Aleksei Zagrebelnii | Paula Simó |
+| Caída de contenedor `dns-dhcp` | Paula Simó| Oscar Jansana |
+| Caída de contenedor `config` | Paula Simó | Aleksei Zagrebelnii |
+| Problemas con TrueNAS / backups | Oscar Jansana | Aleksei Zagrebelnii |
+| Problemas de red / IP | Oscar Jansana | Paula Simó |
+| Restauración completa desde cero | Oscar Jansana | Paula Simó |
+| Problemas con el firewall | Oscar Jansana | Aleksei Zagrebelnii |
+
+En caso de que el responsable principal no esté disponible (por ejemplo, ausencia en clase), el responsable secundario asume todas las tareas. Si ambos faltan, el miembro restante del grupo puede seguir los pasos documentados en este plan.
 
  #### 12. Plan de comunicación
 
