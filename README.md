@@ -133,14 +133,14 @@ Para el servicio de red, tenemos pensado utilizar el mismo esquema básico que s
  <br>- Html, Css y JavaScript
 <li><b>Base de datos</b>
  <br>Que será el servidor encargado de almacenar lo siguiente:
- <br>- MySQL
+ <br>- MariaDB
  <br>- PHPmyadmin
 <li><b>Servidor DNS</b>
 <li><b>Backup</b>
  <br>Donde queremos almacenar las copias de seguridad de los servicios de nuestro portal, que serían:
  <br>- Apache
  <br>- PHP
- <br>- MySQL (Base de datos)
+ <br>- MariaDB (Base de datos)
  <br>- Configuración del DNS
  <br>- Firewall
 </ol>
@@ -348,7 +348,7 @@ Al crear la máquina virtual para los contenedores, utilizamos una IP 192.168.13
 Rango DHCP:
 IP del servidor:
 
-###MariaDB
+### MariaDB
 #### ¿Qué es?
 MariaDB es la base de datos que utilizaremos para nuestro proyecto, que, para quién no sepa qué es MariaDB sirve para guardar y organizar toda la información que usa una página web o una aplicación, para que luego pueda recuperarla rápidamente cuando sea necesario.
 
@@ -357,26 +357,102 @@ Para cualquier página web tener una base de datos es algo fundamental para su c
 En nuestro caso, necesitamos MariaDB para guardar todos los datos de nuestro proyecto y de los usuarios. Sin ella, al reiniciar los contenedores se perdería todo. Gracias a MariaDB, el portal puede mostrar la información de cada usuario cuando entra, y ellos pueden iniciar sesión sin tener que volver a introducir o buscar sus datos externamente.
 
 #### ¿Dónde hay información oficial?
-En la página https://mariadb.org/es/ está la documentación oficial de MariaDB.
-
+Para encontrar información adicional y documentación oficial de MariaDB lo podremos encontrar en su <a href="https://mariadb.org/es/">sitio web oficial</a>.
 
 #### Instalación
-Desde docker - - - - -  -
-
+Para instalar MariaDB en su respectivo contenedor, primero debemos acceder a nuestra máquina virtual con la IP 192.168.135.240 mediante SSH (o bien hacerlo desde la misma terminal de la máquina virtual). Una vez dentro, lo primero que hacemos es actualizar los repositorios del sistema por si hubiera novedades con el comando sudo apt update. Posteriormente, instalaremos el servicio de MariaDB con su respectivo comando "sudo apt install mariadb-server -y" y verificaremos el estado del servicio instalado con "sudo systemctl enable mariadb", en caso de estar parado, lo iniciaremos con "sudo systemctl start mariadb".
 
 #### Parámetros a configurar
+Una vez tenemos instalado MariaDB deberemos editar el archivo principal de configuración utilizando el siguiente comando:
+sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf, donde buscaremos modificar los parámetros de bind-address (para que los otros contenedores o la máquina como tal pueda conectarse directamente), editaremos el charset y collation para evitar problemas con las tildes y eñes (donde usaremos el charset UTF-8) y reiniciaremos el servicio de MariaDB para que se apliquen dichos cambios.<br>
 
+<br>Una vez configurado esto, crearemos nuestra base de datos llamada PentaLink utilizando el script que podemos observar si desplegamos el menú inferior:
+<details> 
+<summary>Script MariaDB PentaLink</summary>
+ -- Crear la base de datos
+CREATE DATABASE IF NOT EXISTS pentalink;<br>
+<br>USE pentalink;<br>
+
+<br>-- Usuarios
+<br>CREATE TABLE IF NOT EXISTS Usuarios 
+<br>    idUsuarios INT NOT NULL AUTO_INCREMENT,
+<br>    correo VARCHAR(100) NOT NULL,
+<br>    password TEXT NOT NULL,
+<br>    fecha_nacimiento DATE NULL,
+<br>    fecha_registro DATETIME DEFAULT CURRENT_TIMESTAMP,
+<br>    url_foto VARCHAR(200) NULL,
+<br>    PRIMARY KEY (idUsuarios),
+<br>    UNIQUE KEY unique_correo (correo)
+<br>) ENGINE = InnoDB;<br>
+
+<br>-- Borradores
+<br>CREATE TABLE IF NOT EXISTS Borradores (
+<br>    idBorrador INT NOT NULL AUTO_INCREMENT,
+<br>    tipo ENUM('articulo', 'nota', 'ensayo', 'otro') NOT NULL,
+<br>    titulo VARCHAR(50) NOT NULL,
+<br>    contenido TEXT NULL,
+<br>    url VARCHAR(200) NULL,
+<br>    Usuarios_idUsuarios INT NOT NULL,
+<br>    fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP,
+<br>    PRIMARY KEY (idBorrador),
+<br>    FOREIGN KEY (Usuarios_idUsuarios) REFERENCES Usuarios(idUsuarios)
+<br>) ENGINE = InnoDB;<br>
+
+<br>-- Followers
+<br>CREATE TABLE IF NOT EXISTS Followers (
+<br>    Follower_idUsuarios INT NOT NULL,
+<br>    Followed_idUsuarios INT NOT NULL,
+<br>    fecha_seguimiento DATETIME DEFAULT CURRENT_TIMESTAMP,
+<br>    PRIMARY KEY (Follower_idUsuarios, Followed_idUsuarios),
+<br>    FOREIGN KEY (Follower_idUsuarios) REFERENCES Usuarios(idUsuarios),
+<br>    FOREIGN KEY (Followed_idUsuarios) REFERENCES Usuarios(idUsuarios)
+<br>) ENGINE = InnoDB;<br>
+
+<br>-- Publicaciones
+<br>CREATE TABLE IF NOT EXISTS Publicaciones (
+<br>    idPublicacion INT NOT NULL AUTO_INCREMENT,
+<br>    tipoPublicacion ENUM('articulo', 'noticia', 'blog', 'ensayo', 'otro') NOT NULL,
+<br>    fecha_publicacion DATETIME DEFAULT CURRENT_TIMESTAMP,
+<br>    titulo VARCHAR(50) NOT NULL,
+<br>    contenido TEXT NULL,
+<br>    url VARCHAR(200) NULL,
+<br>    Usuarios_idUsuarios INT NOT NULL,
+<br>    PRIMARY KEY (idPublicacion),
+<br>    FOREIGN KEY (Usuarios_idUsuarios) REFERENCES Usuarios(idUsuarios)
+<br>) ENGINE = InnoDB;<br>
+
+<br>-- Comentarios
+<br>CREATE TABLE IF NOT EXISTS Comentarios (
+<br>    idComentario INT NOT NULL AUTO_INCREMENT,
+<br>    fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
+<br>    contenido TEXT NOT NULL,
+<br>    Usuarios_idUsuarios INT NOT NULL,
+<br>    Publicaciones_idPublicacion INT NOT NULL,
+<br>    PRIMARY KEY (idComentario),
+<br>    FOREIGN KEY (Usuarios_idUsuarios) REFERENCES Usuarios(idUsuarios),
+<br>    FOREIGN KEY (Publicaciones_idPublicacion) REFERENCES Publicaciones(idPublicacion)
+<br>) ENGINE = InnoDB;<br>
+</details>
 
 #### Aspectos de seguridad
-Cuando almacenemos información sensible, como por ejemplo, contraseñas, deberemos cifrarla para evitar filtraciones de las cuentas de usuario. 
+Es importante que aparte de almacenar la información de los usuarios la cifremos para poder evitar filtraciones de las cuentas de los usuarios o bien, sus datos personales, es por ello que aplicaremos las siguientes medidas:<br>
+<br>· Cifrado de contraseñas en la base de datos. Para ello, cifraremos la contraseña del usuario con SHA-256 o bcrypt y almacenaremos el hash en la base de datos.<br>
 
+<br>· Usuarios con privilegios mínimos. Para ello, contaremos con 3 usuarios, el root que solo podrá ser utilizado para administración, el de pentaLink que solo tendrá los permisos básicos como select, insert, update o delete sobre el usuario de la base de datos y, finalmente, el usuario de la base de datos que será el único con privilegios absolutos.<br>
+
+<br>· Restringiremos el acceso por red. Para ello, en el archivo 50-server.cnf utiliazremos las reglas de firewall con ufw para permitir solo las IPs necesarias y a los puertos requeridos.<br>
+
+<br>· Copias de seguridad con TrueNAS. Gracias a nuestra segunda máquina virtual con TrueNAS podremos hacer las copias de seguridad correspondientes, pero aparte, también nos deberemos asegurar de que el directorio donde MariaDB guarda los datos se incluyan en dichas copas, para, de esta forma, guardar también los datos almacenados en la base de datos, para ello, podemos hacer un volcado periódico con mariadb-dump antes de enviarlo al TrueNAS.<br>
+
+<br>· Actualizaciones periódicas. Para ello, nos aseguraremos de que el sistema reciba las actualizaciones de los parches de seguridad de MariaDB utilizando los comandos "sudo apt update" y "sudo apt upgrade -y", de esta forma, tendremos MariaDB instalado de forma nativa en la máquina virtual junto con su configuración segura y adaptada a nuestro proyecto.<br>
 
 #### Incidencias
+En un principio, teníamos previsto utilizar MySQL como sistema gestor de bases de datos para nuestro proyecto Pentalink. Sin embargo, al intentar instalarlo en nuestra máquina virtual con Debian 13, comprobamos que esto no era compatible, ya que Debian 13 ha reemplazado oficialmente MySQL por MariaDB como base de datos predeterminada.<br>
 
+<br>Esto se debe a que MariaDB es una bifurcación (fork) de MySQL creada por su desarrollador original, garantizando que sea 100% open source y sin dependencias corporativas de Oracle, por lo que hemos instalado MariaDB en su lugar. Lo bueno de haber escogido Debian 13 y MariaDB como servicio es que es totalmente cmopatible con MySQL, por lo que los comandos y consultas funcionan de igual forma y no se requiere ningún cambio como tal.
 
 ### Apache
 Apache nos servirá de servidor web. Nos permite alojar páginas web sencillas y poco dinámicas, por lo que será perfecto para nuestro proyecto.
-
 
 <img width="512" height="195" alt="image" src="https://github.com/user-attachments/assets/25a32c3e-0247-4cb5-9957-3e877093a4f4" />
 
