@@ -608,6 +608,7 @@ Gracias a docker-compose.yml, podemos volver a desplegar todos los servicios con
   <li><b>Fecha: </b>25 de Marzo de 2026
   <li><b>Versión del documento: </b>1.0
   <li><b>Descripción breve del sistema:</b>
+  <br>Portal web donde usuarios registrados comparten 5 tipos de contenido (blogs, imágenes, música, vídeos, videojuegos). Infraestructura: MV principal Debian 13 con Docker (contenedores: dns-dhcp, web, database, config) IP 192.168.135.240, y MV secundaria con TrueNAS para backups.
  </ul>
 
  #### 2. Objetivo del plan
@@ -616,21 +617,15 @@ El objetivo de este plan de contingencia es garantizar que, ante cualquier incid
  #### 3. Alcance
 Este plan aplica a todos los componentes del proyecto PentaLink, incluyendo:<br>
 
-<br>Máquina virtual principal con Debian 13 (IP 192.168.135.240)<br>
+<br>· Máquina virtual principal con Debian 13 (IP 192.168.135.240)
+<br>· Contenedores Docker: dns-dhcp, web, database y config
+<br>· Servidor web Apache y código PHP/HTML/CSS/JS
+<<br>· Base de datos MariaDB
+<br>· Servidor de backups con TrueNAS
+<br>· Configuración de red, firewall y DNS
+<br>· Los archivos subidos por los usuarios (imágenes, música, vídeos, juegos)
 
-<br>Contenedores Docker: dns-dhcp, web, database y config<br>
-
-<br>Servidor web Apache y código PHP/HTML/CSS/JS<br>
-
-<br>Base de datos MariaDB<br>
-
-<br>Servidor de backups con TrueNAS<br>
-
-<br>Configuración de red, firewall y DNS<br>
-
-<br>Los archivos subidos por los usuarios (imágenes, música, vídeos, juegos)<br>
-
-<br>No aplica a los equipos locales de los desarrolladores ni a infraestructuras externas a nuestras máquinas virtuales.
+<br>Esto no aplica a los equipos locales de los desarrolladores ni a infraestructuras externas a nuestras máquinas virtuales.
 
  #### 4. Identificación de activos
  Hemos identificado los siguientes activos críticos para PentaLink:
@@ -662,14 +657,31 @@ Hemos analizado los principales riesgos que pueden afectar a PentaLink:
 | Incendio o problema físico en el aula | Muy baja | Muy alto | Medio |
 
  #### 6. Escenarios de contingencia
+<li>Caída del contenedor database (no se pueden guardar/leer los datos)</li>
+<br><li>Pérdida accidental de la base de datos (borrado de tablas)</li>
+<br><li>Caída del contenedor web (la web no responde, error 500...)</li>
+<br><li>Máquina virtual que hace de servidor de servicios no arranca (error en la máquina virtual con Debian 13)</li>
+<br><li>El servidor TrueNAS no responde (no se pueden restaurar los backups)</li>
+<br><li>Conflicto de IP (con otro equipo que utilize la IP 192.168.135.240)</li>
 
  #### 7. Plan de respuesta
+En el caso de que la incidencia sea con la caída del contenedor con la base de datos:
+<br>Primero nos conectaremos a la máquina virtual principal por ssh desde un PC de la red utilizando el comando "ssh penta@192.168.15.240", donde una vez iniciada la conexión nos encargaremos de verificar los contenedores y reiniciar el contenedor afectado. En el caso que esto no funcionara, entonces, revisaríamos los logs de la base de datos para ver si de esta forma pudiéramos solucionar el problema, en caso contrario, restauraríamos los datos desde el backup de TrueNAS (donde lo veremos en el punto número 9 con mas detalle).<br>
+
+<br>En el caso de que la incidencia sea con la caída del contenedor web:
+<br>Primero nos conectaremos a la máquina virtual principal por ssh desde un PC de la red utilizando el comando "ssh penta@192.168.15.240", donde una vez iniciada la conexión nos encargaremos de reiniciar el contendor web, si este no responde, se deberá verificar el estado del servicio Apache. Si de esta forma el problema persistiera, deberemos revisar los logs del contendor web y restaurar el código fuente desde el backup si este está corrupto.<br>
+
+<br>En el caso de que la incidencia sea que no inicia la máquina virtual principal:
+<br>En este caso, crearíamos una nueva máquina virtual con Debian 13 en VirtualBox e instalar docker en usta nueva máquina. Posteriormente, se restauraría la información y los datos de los 4 contenedores desde el docker-compose.yaml que tenemos guardado en el TrueNAS. Posteriormente, asignaríamos la dirección IP estática 192.168.135.240 a esta nueva máquina virtual.
 
  #### 8. Plan de recuperación
+En cada caso, tras resolver los problemas/incidencias detectados/as restauraremos los datos desde el TrueNAS (si es necesario), reconfiguraremos los servicios siguiendo la documentación que tenemos del proyecto y verificaremos que el portal web está funcionando correctamente (como que carga correctamente, se puede inciar sesión, las publicaciones son visibles...).<br>
+<br>Como tiempo máximo de recuperación hemos establecido una aproximación de 2 horas, y en el caso de que se hayan perdido los datos un tiempo establecido de 24 horas.
 
  #### 9. Copias de seguridad
 
  #### 10. Medidas preventivas
+Como medidas preventivas para este proyecto tenemos un firewall con pfsense con las reglas específicas para que no cualquiera pueda entrar, utilizando port forwarding para la máquina virtual principal, aparte, también contaremos con actualizaciones semanales para que el sistema no quede en versiones más antiguas con mayores fragilidades, por lo que cada vez que nos ponemos a trabajar en el proeycto (mínimo 1 vez a la semana) lo que haremos será utilizar el comando "sudo apt update && sudo apt upgrade", donde aparte de ir actualizando el sistema también revisaremos el estado de los contenedores con un control de acceso a esta máquina (únicamente los integrantes del grupo tenemos la contraseña y permitido acceder a la máquina virtual).
 
  #### 11. Responsables
  Como responsables de cada parte hemos decidido asignarlos de la siguiente manera:
@@ -687,14 +699,21 @@ Hemos analizado los principales riesgos que pueden afectar a PentaLink:
 En caso de que el responsable principal no esté disponible (por ejemplo, ausencia en clase), el responsable secundario asume todas las tareas. Si ambos faltan, el miembro restante del grupo puede seguir los pasos documentados en este plan.
 
  #### 12. Plan de comunicación
+Al tener ya los responsables para cada tipo de incidencia deberemos comunicarnos con ellos a través de discord y en caso necesario se deberá mandar también un correo (como alguna incidencia de gravedad).
+Hemos establecido un tiempo de respuesta de 30 minutos desde que se detecta el fallo, mientras que, en caso que el problema fuera con la red general del aula deberemos comunicarnos y avisar al profesor o la profesora que esté disponible en ese momento.
 
  #### 13. Pruebas del plan
+Para poner a prueba el plan hicimos 2 simulaciones, donde la primera era parando el contenedor web a propósito y pudiendo recuperarlo en un tiempo de 5 minutos y la segunda, borrando archivos de la web y restaurándolo posteriormente a través de la copia de seguridad del TrueNAS en un tiempo de 15 minutos. Como mejora detectada, podríamos implementar también el backup de la base de datos, no solo del código, de esta forma, podremos restaurar los datos guardados en la base de datos, no únicamente el código de la base de datos como tal.
 
  #### 14. Mantenimiento del plan
+Para el mantenimiento del plan el responsable que detecte cualquier cambio en la infraestructura deberá ser el encargado de revisarlo y actualizarlo semanalmente los viernes, donde la próxima revisión es el viernes 24 de abril.
 
  #### 15. Mejoras futuras
+Hemos pensado en diversas mejoras de cara al futuro, como la automatización del volcado de MariaDB antes de cada backup en el trueNAS, la utilización de docker-compose con redes personalizadas para que los contenedores puedan recuperarse solos, agregar un segundo backup en una nube o disco externo (por si el TrueNAS fallara) y monitorizar alertas que pueden ser detectadas, como por ejemplo utilizando cron para que nos advierta de si algún contenedor se ha parado.
 
  #### 16. Conclusiones
+En conclusión, este plan nos permite saber exactamente qué hacer ante cada fallo sin necesidad de perder el tiempo decidiendo sobre la marcha. Hemos aprendido que los backups son inútiles si no incluyen cosas esenciales como la base de datos y que, tener unos roles establecidos (como quién hace cada cosa) acelera el proceso de recuperación en caso de fallo, de esta forma, podemos mejorar la fiabilidad y restablecimiento de servicio en menos de 2 horas.
+
 </details>
 <details>
 <summary><h2>Las incidencias</h2></summary>
