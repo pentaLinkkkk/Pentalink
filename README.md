@@ -726,6 +726,11 @@ Hasta el 18 de Marzo, todo los archivos del proyecto estaban en el PC de uno de 
 
 Por lo tanto, hemos decidido crear las máquinas virtuales desde 0 en el PC de uno de los otros dos integrantes y seguidamente transferir todos los archivos del proyecto, así pudiendo trabajar de forma más eficaz y sin necesidad de utilizar otro equipo más de forma innecesaria.
 
+#### Incidencia 3 - Organización de los archivos para el portal
+Durante la creación del portal tal y como se ha comentado en otras ocasiones hacíamos SSH a la máquina virtual principal para poder editar todos los archivos con Visual Studio utilizando la extensión de Remote - SSH, de esta forma, podíamos tener todo de forma visual junto con todos los archivos. El problema ha sido que al ir creando nuevos archivos sobre la marcha para cada pantalla o función que necesitábamos se nos ha olvidado la organización de estos. Esto ha hecho que tengamos diversos problemas a la hora de ejecutar el servidor y revisar que todo hicera una conexión correcta.
+
+La solución a esto fue empezar de 0 la organización utilizando los scripts que ya teníamos, pero reorganizándolos en carpetas, de esta forma era todavía más fácil y visual lo que debíamos revisar y donde, pero, esto ha generado conflicto con las rutas donde teníamos todo ya configurado en los scripts. lo que nos ha hecho tener que cambiarlos para que funcionen nuevamente de forma correcta.
+
 </details>
 <details>
 <summary><h2>Conclusiones</h2></summary>
