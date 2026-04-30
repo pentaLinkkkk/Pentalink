@@ -679,6 +679,42 @@ En cada caso, tras resolver los problemas/incidencias detectados/as restauraremo
 <br>Como tiempo máximo de recuperación hemos establecido una aproximación de 2 horas, y en el caso de que se hayan perdido los datos un tiempo establecido de 24 horas.
 
  #### 9. Copias de seguridad
+Las copias de seguridad las hemos hecho utilizando una máquina virtual TrueNAS, instalada y configurada dentro de la red interna del proyecto (10.10.10.0/24), con una IP 10.10.10.12/24. 
+
+<img width="686" height="396" alt="image" src="https://github.com/user-attachments/assets/d749db2e-0ffb-4c52-a41a-7425946a2b5c" />
+
+Para crear el script que ejecutará las copias de seguridad se debe acceder a la interfaz web mediante la IP mencionada anteriormente. Una vez dentro, se crea un pool empleando dos discos duros de 100GB cada uno (denominado RAID 1). Los datos se copiarán en ambos discos, como en un espejo, por lo que en caso de que falle uno la información se mantendrá a salvo.
+
+<img width="1264" height="662" alt="image" src="https://github.com/user-attachments/assets/31e06067-49fd-447f-aa35-a8f846c70d68" />
+
+<img width="1013" height="251" alt="image (1)" src="https://github.com/user-attachments/assets/30577ec4-f4e5-4122-99dd-965797ff78c0" />
+
+Para que la máquina TrueNAS pueda hacer el backup al Debian que contiene todos los archivos del proyecto, hay que crear una conexión SSH para que se pueda conectar automáticamente y sin pedir la contraseña. En la interfaz web es posible crear un par de claves, pública y privada, utilizando la información de la máquina Debian (usuario, IP, puerto). Una vez que estén creadas, el último paso es copiar la clave pública que se ha generado y, desde Debian, editar el fichero de configuración de SSH. Se puede hacer mediante el comando: 
+```
+sudo nano ~/.ssh/authotized_keys
+```
+Es crucial asegurarnos de que el servicio SSH permita la autenticación por clave. Esto se puede comprobar fácilmente accediendo a /etc/ssh/sshd_config y descomentando (borrando el #) la línea que contenga "PubkeyAuthentication yes".
+
+Una vez hecho todo esto, hay que volver a la interfaz web de TrueNAS y, en la pestaña de servicios, habilitar rsync. 
+Al hacerlo, debería aparecer una opción en el panel lateral que permita crear y configurar tareas rsync. Allí, habrá que crear el script que ejecutará las copias de seguridad. 
+
+<img width="1268" height="683" alt="image (2)" src="https://github.com/user-attachments/assets/4f2013a1-34da-438c-a5a6-00b6b678a127" />
+<ul>
+ <li>MNT: Carpeta dónde se almacenará la copia de seguridad. Aparecerá el pool que hemos creado anteriormente.</li>
+ <li>USER: El usuario de TrueNAS que ejecutará la tarea. Hemos utilizado root para evitar problemas de permisos, aunque en entornos de producción no se recomienda.</li>
+ <li>DIRECTION: Pull para "agarrar" los datos del directorio de destino y copiarlos en el pool seleccionado. PUSH para hacer lo contrario.</li>
+ <li>DESCRIPTION: Descripción del script.</li>
+ <li>SCHEDULE: Día y hora en la que queremos que se ejecute el script, resumidamente, un cronjob.</li>
+ <li>REMOTE HOST: El host donde se conectará TrueNAS mediante SSH</li>
+ <li>RSYNC MODE: El método que utilizará rsync para conectarse a la máquina de destino</li>
+ <li>SSH PORT: El puerto por el que saldrá la conexión SSH</li>
+ <li>REMOTE PATH: El directorio que queremos copiar.</li>
+</ul>
+
+Cuando la configuración del script esté finalizada se debe guardar y, si todo está bien, se nos permitirá ejecutar la tarea rsync manualmente (o se puede esperar a la fecha y hora que hemos configurado en el cronjob para que se haga automáticamente).
+<img width="905" height="393" alt="image" src="https://github.com/user-attachments/assets/ff33a910-18b3-47ba-aa9a-3b99976d2955" />
+
+Para acceder a las copias de seguridad debemos conectarnos por SSH a TrueNAS desde cualquier máquina que esté dentro de la red interna. Una vez hecho esto, accedemos al directorio donde se guardan los ficheros copiados del backup (situados normalmente dentro de /mnt) y, mediante el comando scp -r, copiarlos en la máquina host.
 
  #### 10. Medidas preventivas
 Como medidas preventivas para este proyecto tenemos un firewall con pfsense con las reglas específicas para que no cualquiera pueda entrar, utilizando port forwarding para la máquina virtual principal, aparte, también contaremos con actualizaciones semanales para que el sistema no quede en versiones más antiguas con mayores fragilidades, por lo que cada vez que nos ponemos a trabajar en el proeycto (mínimo 1 vez a la semana) lo que haremos será utilizar el comando "sudo apt update && sudo apt upgrade", donde aparte de ir actualizando el sistema también revisaremos el estado de los contenedores con un control de acceso a esta máquina (únicamente los integrantes del grupo tenemos la contraseña y permitido acceder a la máquina virtual).
